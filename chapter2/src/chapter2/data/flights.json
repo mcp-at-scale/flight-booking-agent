@@ -1,0 +1,920 @@
+[
+  {
+    "flight_number": "FL001",
+    "airline": "FL",
+    "origin": "CDG",
+    "destination": "JFK",
+    "departure_time": "06:00",
+    "duration_hours": 8.5,
+    "base_price": 650
+  },
+  {
+    "flight_number": "FL003",
+    "airline": "FL",
+    "origin": "CDG",
+    "destination": "JFK",
+    "departure_time": "14:00",
+    "duration_hours": 8.5,
+    "base_price": 650
+  },
+  {
+    "flight_number": "FL005",
+    "airline": "FL",
+    "origin": "CDG",
+    "destination": "JFK",
+    "departure_time": "22:00",
+    "duration_hours": 8.5,
+    "base_price": 650
+  },
+  {
+    "flight_number": "FL002",
+    "airline": "FL",
+    "origin": "JFK",
+    "destination": "CDG",
+    "departure_time": "06:00",
+    "duration_hours": 7.5,
+    "base_price": 680
+  },
+  {
+    "flight_number": "FL004",
+    "airline": "FL",
+    "origin": "JFK",
+    "destination": "CDG",
+    "departure_time": "14:00",
+    "duration_hours": 7.5,
+    "base_price": 680
+  },
+  {
+    "flight_number": "FL006",
+    "airline": "FL",
+    "origin": "JFK",
+    "destination": "CDG",
+    "departure_time": "22:00",
+    "duration_hours": 7.5,
+    "base_price": 680
+  },
+  {
+    "flight_number": "BS101",
+    "airline": "BS",
+    "origin": "LHR",
+    "destination": "JFK",
+    "departure_time": "06:00",
+    "duration_hours": 8.0,
+    "base_price": 620
+  },
+  {
+    "flight_number": "BS103",
+    "airline": "BS",
+    "origin": "LHR",
+    "destination": "JFK",
+    "departure_time": "14:00",
+    "duration_hours": 8.0,
+    "base_price": 620
+  },
+  {
+    "flight_number": "BS105",
+    "airline": "BS",
+    "origin": "LHR",
+    "destination": "JFK",
+    "departure_time": "22:00",
+    "duration_hours": 8.0,
+    "base_price": 620
+  },
+  {
+    "flight_number": "BS102",
+    "airline": "BS",
+    "origin": "JFK",
+    "destination": "LHR",
+    "departure_time": "06:00",
+    "duration_hours": 7.0,
+    "base_price": 640
+  },
+  {
+    "flight_number": "BS104",
+    "airline": "BS",
+    "origin": "JFK",
+    "destination": "LHR",
+    "departure_time": "14:00",
+    "duration_hours": 7.0,
+    "base_price": 640
+  },
+  {
+    "flight_number": "BS106",
+    "airline": "BS",
+    "origin": "JFK",
+    "destination": "LHR",
+    "departure_time": "22:00",
+    "duration_hours": 7.0,
+    "base_price": 640
+  },
+  {
+    "flight_number": "LS401",
+    "airline": "LS",
+    "origin": "FRA",
+    "destination": "ORD",
+    "departure_time": "06:00",
+    "duration_hours": 9.5,
+    "base_price": 700
+  },
+  {
+    "flight_number": "LS403",
+    "airline": "LS",
+    "origin": "FRA",
+    "destination": "ORD",
+    "departure_time": "14:00",
+    "duration_hours": 9.5,
+    "base_price": 700
+  },
+  {
+    "flight_number": "LS405",
+    "airline": "LS",
+    "origin": "FRA",
+    "destination": "ORD",
+    "departure_time": "22:00",
+    "duration_hours": 9.5,
+    "base_price": 700
+  },
+  {
+    "flight_number": "LS402",
+    "airline": "LS",
+    "origin": "ORD",
+    "destination": "FRA",
+    "departure_time": "06:00",
+    "duration_hours": 8.5,
+    "base_price": 720
+  },
+  {
+    "flight_number": "LS404",
+    "airline": "LS",
+    "origin": "ORD",
+    "destination": "FRA",
+    "departure_time": "14:00",
+    "duration_hours": 8.5,
+    "base_price": 720
+  },
+  {
+    "flight_number": "LS406",
+    "airline": "LS",
+    "origin": "ORD",
+    "destination": "FRA",
+    "departure_time": "22:00",
+    "duration_hours": 8.5,
+    "base_price": 720
+  },
+  {
+    "flight_number": "UY801",
+    "airline": "UY",
+    "origin": "SFO",
+    "destination": "LHR",
+    "departure_time": "06:00",
+    "duration_hours": 10.5,
+    "base_price": 850
+  },
+  {
+    "flight_number": "UY803",
+    "airline": "UY",
+    "origin": "SFO",
+    "destination": "LHR",
+    "departure_time": "14:00",
+    "duration_hours": 10.5,
+    "base_price": 850
+  },
+  {
+    "flight_number": "UY805",
+    "airline": "UY",
+    "origin": "SFO",
+    "destination": "LHR",
+    "departure_time": "22:00",
+    "duration_hours": 10.5,
+    "base_price": 850
+  },
+  {
+    "flight_number": "UY802",
+    "airline": "UY",
+    "origin": "LHR",
+    "destination": "SFO",
+    "departure_time": "06:00",
+    "duration_hours": 11.0,
+    "base_price": 880
+  },
+  {
+    "flight_number": "UY804",
+    "airline": "UY",
+    "origin": "LHR",
+    "destination": "SFO",
+    "departure_time": "14:00",
+    "duration_hours": 11.0,
+    "base_price": 880
+  },
+  {
+    "flight_number": "UY806",
+    "airline": "UY",
+    "origin": "LHR",
+    "destination": "SFO",
+    "departure_time": "22:00",
+    "duration_hours": 11.0,
+    "base_price": 880
+  },
+  {
+    "flight_number": "AW201",
+    "airline": "AW",
+    "origin": "JFK",
+    "destination": "LAX",
+    "departure_time": "06:00",
+    "duration_hours": 6.0,
+    "base_price": 320
+  },
+  {
+    "flight_number": "AW203",
+    "airline": "AW",
+    "origin": "JFK",
+    "destination": "LAX",
+    "departure_time": "14:00",
+    "duration_hours": 6.0,
+    "base_price": 320
+  },
+  {
+    "flight_number": "AW205",
+    "airline": "AW",
+    "origin": "JFK",
+    "destination": "LAX",
+    "departure_time": "22:00",
+    "duration_hours": 6.0,
+    "base_price": 320
+  },
+  {
+    "flight_number": "AW202",
+    "airline": "AW",
+    "origin": "LAX",
+    "destination": "JFK",
+    "departure_time": "06:00",
+    "duration_hours": 5.5,
+    "base_price": 340
+  },
+  {
+    "flight_number": "AW204",
+    "airline": "AW",
+    "origin": "LAX",
+    "destination": "JFK",
+    "departure_time": "14:00",
+    "duration_hours": 5.5,
+    "base_price": 340
+  },
+  {
+    "flight_number": "AW206",
+    "airline": "AW",
+    "origin": "LAX",
+    "destination": "JFK",
+    "departure_time": "22:00",
+    "duration_hours": 5.5,
+    "base_price": 340
+  },
+  {
+    "flight_number": "HW301",
+    "airline": "HW",
+    "origin": "JFK",
+    "destination": "SFO",
+    "departure_time": "06:00",
+    "duration_hours": 6.5,
+    "base_price": 350
+  },
+  {
+    "flight_number": "HW303",
+    "airline": "HW",
+    "origin": "JFK",
+    "destination": "SFO",
+    "departure_time": "14:00",
+    "duration_hours": 6.5,
+    "base_price": 350
+  },
+  {
+    "flight_number": "HW305",
+    "airline": "HW",
+    "origin": "JFK",
+    "destination": "SFO",
+    "departure_time": "22:00",
+    "duration_hours": 6.5,
+    "base_price": 350
+  },
+  {
+    "flight_number": "HW302",
+    "airline": "HW",
+    "origin": "SFO",
+    "destination": "JFK",
+    "departure_time": "06:00",
+    "duration_hours": 5.5,
+    "base_price": 360
+  },
+  {
+    "flight_number": "HW304",
+    "airline": "HW",
+    "origin": "SFO",
+    "destination": "JFK",
+    "departure_time": "14:00",
+    "duration_hours": 5.5,
+    "base_price": 360
+  },
+  {
+    "flight_number": "HW306",
+    "airline": "HW",
+    "origin": "SFO",
+    "destination": "JFK",
+    "departure_time": "22:00",
+    "duration_hours": 5.5,
+    "base_price": 360
+  },
+  {
+    "flight_number": "UY501",
+    "airline": "UY",
+    "origin": "ORD",
+    "destination": "LAX",
+    "departure_time": "06:00",
+    "duration_hours": 4.5,
+    "base_price": 280
+  },
+  {
+    "flight_number": "UY503",
+    "airline": "UY",
+    "origin": "ORD",
+    "destination": "LAX",
+    "departure_time": "14:00",
+    "duration_hours": 4.5,
+    "base_price": 280
+  },
+  {
+    "flight_number": "UY505",
+    "airline": "UY",
+    "origin": "ORD",
+    "destination": "LAX",
+    "departure_time": "22:00",
+    "duration_hours": 4.5,
+    "base_price": 280
+  },
+  {
+    "flight_number": "UY502",
+    "airline": "UY",
+    "origin": "LAX",
+    "destination": "ORD",
+    "departure_time": "06:00",
+    "duration_hours": 4.0,
+    "base_price": 290
+  },
+  {
+    "flight_number": "UY504",
+    "airline": "UY",
+    "origin": "LAX",
+    "destination": "ORD",
+    "departure_time": "14:00",
+    "duration_hours": 4.0,
+    "base_price": 290
+  },
+  {
+    "flight_number": "UY506",
+    "airline": "UY",
+    "origin": "LAX",
+    "destination": "ORD",
+    "departure_time": "22:00",
+    "duration_hours": 4.0,
+    "base_price": 290
+  },
+  {
+    "flight_number": "FL101",
+    "airline": "FL",
+    "origin": "CDG",
+    "destination": "FCO",
+    "departure_time": "06:00",
+    "duration_hours": 2.0,
+    "base_price": 180
+  },
+  {
+    "flight_number": "FL103",
+    "airline": "FL",
+    "origin": "CDG",
+    "destination": "FCO",
+    "departure_time": "14:00",
+    "duration_hours": 2.0,
+    "base_price": 180
+  },
+  {
+    "flight_number": "FL105",
+    "airline": "FL",
+    "origin": "CDG",
+    "destination": "FCO",
+    "departure_time": "22:00",
+    "duration_hours": 2.0,
+    "base_price": 180
+  },
+  {
+    "flight_number": "FL102",
+    "airline": "FL",
+    "origin": "FCO",
+    "destination": "CDG",
+    "departure_time": "06:00",
+    "duration_hours": 2.0,
+    "base_price": 180
+  },
+  {
+    "flight_number": "FL104",
+    "airline": "FL",
+    "origin": "FCO",
+    "destination": "CDG",
+    "departure_time": "14:00",
+    "duration_hours": 2.0,
+    "base_price": 180
+  },
+  {
+    "flight_number": "FL106",
+    "airline": "FL",
+    "origin": "FCO",
+    "destination": "CDG",
+    "departure_time": "22:00",
+    "duration_hours": 2.0,
+    "base_price": 180
+  },
+  {
+    "flight_number": "BS201",
+    "airline": "BS",
+    "origin": "LHR",
+    "destination": "AMS",
+    "departure_time": "06:00",
+    "duration_hours": 1.5,
+    "base_price": 150
+  },
+  {
+    "flight_number": "BS203",
+    "airline": "BS",
+    "origin": "LHR",
+    "destination": "AMS",
+    "departure_time": "14:00",
+    "duration_hours": 1.5,
+    "base_price": 150
+  },
+  {
+    "flight_number": "BS205",
+    "airline": "BS",
+    "origin": "LHR",
+    "destination": "AMS",
+    "departure_time": "22:00",
+    "duration_hours": 1.5,
+    "base_price": 150
+  },
+  {
+    "flight_number": "BS202",
+    "airline": "BS",
+    "origin": "AMS",
+    "destination": "LHR",
+    "departure_time": "06:00",
+    "duration_hours": 1.5,
+    "base_price": 150
+  },
+  {
+    "flight_number": "BS204",
+    "airline": "BS",
+    "origin": "AMS",
+    "destination": "LHR",
+    "departure_time": "14:00",
+    "duration_hours": 1.5,
+    "base_price": 150
+  },
+  {
+    "flight_number": "BS206",
+    "airline": "BS",
+    "origin": "AMS",
+    "destination": "LHR",
+    "departure_time": "22:00",
+    "duration_hours": 1.5,
+    "base_price": 150
+  },
+  {
+    "flight_number": "LS201",
+    "airline": "LS",
+    "origin": "FRA",
+    "destination": "BCN",
+    "departure_time": "06:00",
+    "duration_hours": 2.5,
+    "base_price": 200
+  },
+  {
+    "flight_number": "LS203",
+    "airline": "LS",
+    "origin": "FRA",
+    "destination": "BCN",
+    "departure_time": "14:00",
+    "duration_hours": 2.5,
+    "base_price": 200
+  },
+  {
+    "flight_number": "LS205",
+    "airline": "LS",
+    "origin": "FRA",
+    "destination": "BCN",
+    "departure_time": "22:00",
+    "duration_hours": 2.5,
+    "base_price": 200
+  },
+  {
+    "flight_number": "LS202",
+    "airline": "LS",
+    "origin": "BCN",
+    "destination": "FRA",
+    "departure_time": "06:00",
+    "duration_hours": 2.5,
+    "base_price": 200
+  },
+  {
+    "flight_number": "LS204",
+    "airline": "LS",
+    "origin": "BCN",
+    "destination": "FRA",
+    "departure_time": "14:00",
+    "duration_hours": 2.5,
+    "base_price": 200
+  },
+  {
+    "flight_number": "LS206",
+    "airline": "LS",
+    "origin": "BCN",
+    "destination": "FRA",
+    "departure_time": "22:00",
+    "duration_hours": 2.5,
+    "base_price": 200
+  },
+  {
+    "flight_number": "DF201",
+    "airline": "DF",
+    "origin": "DXB",
+    "destination": "LHR",
+    "departure_time": "06:00",
+    "duration_hours": 7.5,
+    "base_price": 550
+  },
+  {
+    "flight_number": "DF203",
+    "airline": "DF",
+    "origin": "DXB",
+    "destination": "LHR",
+    "departure_time": "14:00",
+    "duration_hours": 7.5,
+    "base_price": 550
+  },
+  {
+    "flight_number": "DF205",
+    "airline": "DF",
+    "origin": "DXB",
+    "destination": "LHR",
+    "departure_time": "22:00",
+    "duration_hours": 7.5,
+    "base_price": 550
+  },
+  {
+    "flight_number": "DF202",
+    "airline": "DF",
+    "origin": "LHR",
+    "destination": "DXB",
+    "departure_time": "06:00",
+    "duration_hours": 7.0,
+    "base_price": 580
+  },
+  {
+    "flight_number": "DF204",
+    "airline": "DF",
+    "origin": "LHR",
+    "destination": "DXB",
+    "departure_time": "14:00",
+    "duration_hours": 7.0,
+    "base_price": 580
+  },
+  {
+    "flight_number": "DF206",
+    "airline": "DF",
+    "origin": "LHR",
+    "destination": "DXB",
+    "departure_time": "22:00",
+    "duration_hours": 7.0,
+    "base_price": 580
+  },
+  {
+    "flight_number": "DF301",
+    "airline": "DF",
+    "origin": "DXB",
+    "destination": "JFK",
+    "departure_time": "06:00",
+    "duration_hours": 14.0,
+    "base_price": 900
+  },
+  {
+    "flight_number": "DF303",
+    "airline": "DF",
+    "origin": "DXB",
+    "destination": "JFK",
+    "departure_time": "14:00",
+    "duration_hours": 14.0,
+    "base_price": 900
+  },
+  {
+    "flight_number": "DF305",
+    "airline": "DF",
+    "origin": "DXB",
+    "destination": "JFK",
+    "departure_time": "22:00",
+    "duration_hours": 14.0,
+    "base_price": 900
+  },
+  {
+    "flight_number": "DF302",
+    "airline": "DF",
+    "origin": "JFK",
+    "destination": "DXB",
+    "departure_time": "06:00",
+    "duration_hours": 12.5,
+    "base_price": 920
+  },
+  {
+    "flight_number": "DF304",
+    "airline": "DF",
+    "origin": "JFK",
+    "destination": "DXB",
+    "departure_time": "14:00",
+    "duration_hours": 12.5,
+    "base_price": 920
+  },
+  {
+    "flight_number": "DF306",
+    "airline": "DF",
+    "origin": "JFK",
+    "destination": "DXB",
+    "departure_time": "22:00",
+    "duration_hours": 12.5,
+    "base_price": 920
+  },
+  {
+    "flight_number": "PS101",
+    "airline": "PS",
+    "origin": "DOH",
+    "destination": "CDG",
+    "departure_time": "06:00",
+    "duration_hours": 7.0,
+    "base_price": 520
+  },
+  {
+    "flight_number": "PS103",
+    "airline": "PS",
+    "origin": "DOH",
+    "destination": "CDG",
+    "departure_time": "14:00",
+    "duration_hours": 7.0,
+    "base_price": 520
+  },
+  {
+    "flight_number": "PS105",
+    "airline": "PS",
+    "origin": "DOH",
+    "destination": "CDG",
+    "departure_time": "22:00",
+    "duration_hours": 7.0,
+    "base_price": 520
+  },
+  {
+    "flight_number": "PS102",
+    "airline": "PS",
+    "origin": "CDG",
+    "destination": "DOH",
+    "departure_time": "06:00",
+    "duration_hours": 6.5,
+    "base_price": 540
+  },
+  {
+    "flight_number": "PS104",
+    "airline": "PS",
+    "origin": "CDG",
+    "destination": "DOH",
+    "departure_time": "14:00",
+    "duration_hours": 6.5,
+    "base_price": 540
+  },
+  {
+    "flight_number": "PS106",
+    "airline": "PS",
+    "origin": "CDG",
+    "destination": "DOH",
+    "departure_time": "22:00",
+    "duration_hours": 6.5,
+    "base_price": 540
+  },
+  {
+    "flight_number": "MD401",
+    "airline": "MD",
+    "origin": "SIN",
+    "destination": "LHR",
+    "departure_time": "06:00",
+    "duration_hours": 13.5,
+    "base_price": 850
+  },
+  {
+    "flight_number": "MD403",
+    "airline": "MD",
+    "origin": "SIN",
+    "destination": "LHR",
+    "departure_time": "14:00",
+    "duration_hours": 13.5,
+    "base_price": 850
+  },
+  {
+    "flight_number": "MD405",
+    "airline": "MD",
+    "origin": "SIN",
+    "destination": "LHR",
+    "departure_time": "22:00",
+    "duration_hours": 13.5,
+    "base_price": 850
+  },
+  {
+    "flight_number": "MD402",
+    "airline": "MD",
+    "origin": "LHR",
+    "destination": "SIN",
+    "departure_time": "06:00",
+    "duration_hours": 13.0,
+    "base_price": 870
+  },
+  {
+    "flight_number": "MD404",
+    "airline": "MD",
+    "origin": "LHR",
+    "destination": "SIN",
+    "departure_time": "14:00",
+    "duration_hours": 13.0,
+    "base_price": 870
+  },
+  {
+    "flight_number": "MD406",
+    "airline": "MD",
+    "origin": "LHR",
+    "destination": "SIN",
+    "departure_time": "22:00",
+    "duration_hours": 13.0,
+    "base_price": 870
+  },
+  {
+    "flight_number": "MD501",
+    "airline": "MD",
+    "origin": "SIN",
+    "destination": "SFO",
+    "departure_time": "06:00",
+    "duration_hours": 16.0,
+    "base_price": 950
+  },
+  {
+    "flight_number": "MD503",
+    "airline": "MD",
+    "origin": "SIN",
+    "destination": "SFO",
+    "departure_time": "14:00",
+    "duration_hours": 16.0,
+    "base_price": 950
+  },
+  {
+    "flight_number": "MD505",
+    "airline": "MD",
+    "origin": "SIN",
+    "destination": "SFO",
+    "departure_time": "22:00",
+    "duration_hours": 16.0,
+    "base_price": 950
+  },
+  {
+    "flight_number": "MD502",
+    "airline": "MD",
+    "origin": "SFO",
+    "destination": "SIN",
+    "departure_time": "06:00",
+    "duration_hours": 15.5,
+    "base_price": 980
+  },
+  {
+    "flight_number": "MD504",
+    "airline": "MD",
+    "origin": "SFO",
+    "destination": "SIN",
+    "departure_time": "14:00",
+    "duration_hours": 15.5,
+    "base_price": 980
+  },
+  {
+    "flight_number": "MD506",
+    "airline": "MD",
+    "origin": "SFO",
+    "destination": "SIN",
+    "departure_time": "22:00",
+    "duration_hours": 15.5,
+    "base_price": 980
+  },
+  {
+    "flight_number": "SK701",
+    "airline": "SK",
+    "origin": "NRT",
+    "destination": "LAX",
+    "departure_time": "06:00",
+    "duration_hours": 10.0,
+    "base_price": 750
+  },
+  {
+    "flight_number": "SK703",
+    "airline": "SK",
+    "origin": "NRT",
+    "destination": "LAX",
+    "departure_time": "14:00",
+    "duration_hours": 10.0,
+    "base_price": 750
+  },
+  {
+    "flight_number": "SK705",
+    "airline": "SK",
+    "origin": "NRT",
+    "destination": "LAX",
+    "departure_time": "22:00",
+    "duration_hours": 10.0,
+    "base_price": 750
+  },
+  {
+    "flight_number": "SK702",
+    "airline": "SK",
+    "origin": "LAX",
+    "destination": "NRT",
+    "departure_time": "06:00",
+    "duration_hours": 11.5,
+    "base_price": 780
+  },
+  {
+    "flight_number": "SK704",
+    "airline": "SK",
+    "origin": "LAX",
+    "destination": "NRT",
+    "departure_time": "14:00",
+    "duration_hours": 11.5,
+    "base_price": 780
+  },
+  {
+    "flight_number": "SK706",
+    "airline": "SK",
+    "origin": "LAX",
+    "destination": "NRT",
+    "departure_time": "22:00",
+    "duration_hours": 11.5,
+    "base_price": 780
+  },
+  {
+    "flight_number": "SK801",
+    "airline": "SK",
+    "origin": "HND",
+    "destination": "SFO",
+    "departure_time": "06:00",
+    "duration_hours": 9.5,
+    "base_price": 720
+  },
+  {
+    "flight_number": "SK803",
+    "airline": "SK",
+    "origin": "HND",
+    "destination": "SFO",
+    "departure_time": "14:00",
+    "duration_hours": 9.5,
+    "base_price": 720
+  },
+  {
+    "flight_number": "SK805",
+    "airline": "SK",
+    "origin": "HND",
+    "destination": "SFO",
+    "departure_time": "22:00",
+    "duration_hours": 9.5,
+    "base_price": 720
+  },
+  {
+    "flight_number": "SK802",
+    "airline": "SK",
+    "origin": "SFO",
+    "destination": "HND",
+    "departure_time": "06:00",
+    "duration_hours": 11.0,
+    "base_price": 740
+  },
+  {
+    "flight_number": "SK804",
+    "airline": "SK",
+    "origin": "SFO",
+    "destination": "HND",
+    "departure_time": "14:00",
+    "duration_hours": 11.0,
+    "base_price": 740
+  },
+  {
+    "flight_number": "SK806",
+    "airline": "SK",
+    "origin": "SFO",
+    "destination": "HND",
+    "departure_time": "22:00",
+    "duration_hours": 11.0,
+    "base_price": 740
+  }
+]
