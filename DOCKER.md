@@ -5,12 +5,13 @@ This repository includes a Dockerfile that provides a web-based VS Code environm
 ## Features
 
 - 🌐 **Web-based VS Code**: Access via browser at `http://localhost:8080`
-- 🐍 **Python 3.10+**: Pre-configured Python environment
+- 🐍 **Python 3.11+**: Pre-configured Python environment
 - ⚡ **uv package manager**: Fast Python package installation
 - 🧪 **Testing ready**: pytest and all dev dependencies installed
-- 🎨 **VS Code extensions**: Python, Pylance, Ruff, TOML support pre-installed
+- 🎨 **VS Code extensions**: Python, Ruff, TOML support pre-installed
 - 🔒 **Non-root user**: Runs as `coder` user for security
-- 🏔️ **Alpine-based**: Small image size (~500MB vs 2GB+ Ubuntu)
+- 🚀 **MCP**: Port 8000 exposed for MCP server 
+- 📦 **Debian-based**: Stable and compatible (~1.3GB)
 
 ## Quick Start
 
@@ -26,9 +27,12 @@ docker build -t flight-booking-dev .
 docker run -d \
   --name flight-booking-dev \
   -p 8080:8080 \
+  -p 8000:8000 \
   -v $(pwd):/home/coder/workspace \
   flight-booking-dev
 ```
+
+**Note:** Port 8000 is for the MCP server.
 
 ### Access the environment
 
@@ -49,6 +53,7 @@ Create a custom config before running:
 docker run -d \
   --name flight-booking-dev \
   -p 8080:8080 \
+  -p 8000:8000 \
   -e PASSWORD=your-secure-password \
   -v $(pwd):/home/coder/workspace \
   flight-booking-dev
@@ -107,6 +112,7 @@ services:
     build: .
     ports:
       - "8080:8080"
+      - "8000:8000"
     volumes:
       - .:/home/coder/workspace
     environment:
@@ -175,9 +181,14 @@ For production use, consider:
 
 ## Image Size
 
-The Alpine-based image is approximately **~500MB**, significantly smaller than Ubuntu-based alternatives (2GB+).
+The Debian Slim-based image is approximately **~1.3GB**. While larger than Alpine-based alternatives, it provides better compatibility with code-server and development tools.
 
 To check your image size:
 ```bash
 docker images flight-booking-dev
 ```
+
+## Ports
+
+- **8080**: code-server (web-based VS Code)
+- **8000**: MCP server
