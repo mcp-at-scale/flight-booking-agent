@@ -11,7 +11,7 @@ from chapter2.models import Airline
 _DATA_DIR = Path(__file__).parent / "data"
 _airlines_cache: Optional[list[Airline]] = None
 
-
+# BEGIN - REF - _load_airlines
 def _load_airlines() -> list[Airline]:
     """Load airlines from JSON file."""
     global _airlines_cache
@@ -20,7 +20,7 @@ def _load_airlines() -> list[Airline]:
             data = json.load(f)
             _airlines_cache = [Airline(**airline) for airline in data]
     return _airlines_cache
-
+# END - REF - _load_airlines
 
 def get_airline_by_code(code: str) -> Optional[Airline]:
     """
