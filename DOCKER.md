@@ -10,8 +10,9 @@ This repository includes a Dockerfile that provides a web-based VS Code environm
 - 🧪 **Testing ready**: pytest and all dev dependencies installed
 - 🎨 **VS Code extensions**: Python, Ruff, TOML support pre-installed
 - 🔒 **Non-root user**: Runs as `coder` user for security
-- 🚀 **MCP**: Port 8000 exposed for MCP server 
+- 🚀 **MCP Ready**: Ports 8000 (server) and 8001 (inspector) exposed
 - 📦 **Debian-based**: Stable and compatible (~1.3GB)
+- 🔍 **Node.js/npm**: Included for MCP Inspector
 
 ## Quick Start
 
@@ -28,20 +29,35 @@ docker run -d \
   --name flight-booking-dev \
   -p 8080:8080 \
   -p 8000:8000 \
+  -p 8001:8001 \
   -v $(pwd):/home/coder/workspace \
   flight-booking-dev
 ```
 
-**Note:** Port 8000 is for the MCP server.
+**Ports:**
+- `8080`: code-server (web IDE)
+- `8000`: MCP server (reserved for future use)
+- `8001`: MCP Inspector (auto-started)
 
-### Access the environment
+### Access the Services
 
-Open your browser and navigate to:
+The container automatically starts two services:
+
+**1. code-server (Web-based VS Code)**
 ```
 http://localhost:8080
 ```
+Default password: `changeme`
 
-**Default password:** `changeme`
+**2. MCP Inspector (Interactive Testing)**
+```
+http://localhost:8001
+```
+No authentication required - ready to test the MCP server immediately!
+
+Both services start automatically when the container launches.
+
+**Note**: Authentication is disabled on the MCP Inspector (`DANGEROUSLY_OMIT_AUTH=true`) for ease of use in the local development environment. The warning about disabled authentication in the logs is expected and safe for local development.
 
 ## Custom Configuration
 
@@ -54,6 +70,7 @@ docker run -d \
   --name flight-booking-dev \
   -p 8080:8080 \
   -p 8000:8000 \
+  -p 8001:8001 \
   -e PASSWORD=your-secure-password \
   -v $(pwd):/home/coder/workspace \
   flight-booking-dev
@@ -113,10 +130,12 @@ services:
     ports:
       - "8080:8080"
       - "8000:8000"
+      - "8001:8001"
     volumes:
       - .:/home/coder/workspace
     environment:
       - PASSWORD=changeme
+      - CLIENT_PORT=8001
     restart: unless-stopped
 ```
 
@@ -192,3 +211,44 @@ docker images flight-booking-dev
 
 - **8080**: code-server (web-based VS Code)
 - **8000**: MCP server
+- **8001**: MCP Inspector
+
+## Using the MCP Inspector
+
+The MCP Inspector is automatically started when the container launches. Simply navigate to:
+```
+http://localhost:8001
+```
+
+The inspector provides:
+- **Tools Tab**: Test all available MCP tools with custom parameters
+- **Resources Tab**: Browse and query resources (airports, airlines, routes)
+- **Messages Tab**: View raw JSON-RPC communication
+- **Server Info**: View server metadata and capabilities
+
+### Manual Restart (if needed)
+
+If you need to manually restart the MCP Inspector:
+
+```bash
+# Access the container
+docker exec -it flight-booking-dev bash
+
+# Navigate to chapter2
+cd workspace/chapter2
+
+# Run the inspector
+npx @modelcontextprotocol/inspector uv run flight-booking-mcp
+```
+
+### Viewing Logs
+
+To see the startup logs:
+```bash
+docker logs flight-booking-dev
+```
+
+To see code-server logs:
+```bash
+docker exec flight-booking-dev cat /tmp/code-server.log
+```

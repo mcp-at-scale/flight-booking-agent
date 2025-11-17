@@ -5,7 +5,11 @@ description = "Flight booking system simulation with JSON-based data and Pydanti
 requires-python = ">=3.10"
 dependencies = [
     "pydantic>=2.12.4",
+    "mcp[cli]>=1.0.0",
 ]
+
+[project.scripts]
+flight-booking-mcp = "chapter2.mcp_server:main"
 
 [dependency-groups]
 dev = [
