@@ -23,6 +23,7 @@ RUN apt-get update && apt-get install -y \
     sudo \
     net-tools \
     procps \
+    socat \
     && rm -rf /var/lib/apt/lists/*
 
 # Create a non-root user
@@ -72,7 +73,7 @@ RUN cd chapter2 && uv sync
 RUN mkdir -p /home/coder/.config/code-server && \
     echo "bind-addr: 0.0.0.0:8080" > /home/coder/.config/code-server/config.yaml && \
     echo "auth: password" >> /home/coder/.config/code-server/config.yaml && \
-    echo "password: changeme" >> /home/coder/.config/code-server/config.yaml && \
+    echo "password: mcpatscale" >> /home/coder/.config/code-server/config.yaml && \
     echo "cert: false" >> /home/coder/.config/code-server/config.yaml
 
 # Install useful VS Code extensions
@@ -87,8 +88,9 @@ RUN ~/.local/bin/code-server --install-extension ms-python.python || true && \
 # 8001: MCP Inspector
 EXPOSE 8080
 EXPOSE 8000
-EXPOSE 6274
-EXPOSE 6277
+EXPOSE 16274
+EXPOSE 7274
+EXPOSE 7277
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
