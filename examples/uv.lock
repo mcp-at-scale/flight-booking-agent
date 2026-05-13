@@ -603,6 +603,9 @@ dependencies = [
 [package.metadata]
 requires-dist = [{ name = "pydantic", specifier = ">=2.12.4" }]
 
+[package.metadata.requires-dev]
+dev = [{ name = "pytest", specifier = ">=9.0.0" }]
+
 [[package]]
 name = "pygments"
 version = "2.19.2"
