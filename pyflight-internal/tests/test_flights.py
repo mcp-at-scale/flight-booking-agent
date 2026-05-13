@@ -4,14 +4,14 @@ Tests for flight generation and querying.
 
 import pytest
 from datetime import datetime
-from chapter2.flights import (
+from pyflight_internal.flights import (
     get_flight_for_date,
     get_flights_by_route,
     get_flight_by_number,
     get_all_flights_for_date,
     get_all_daily_flight_templates
 )
-from chapter2.models import Flight
+from pyflight_internal.models import Flight
 
 
 def test_get_flight_for_date():

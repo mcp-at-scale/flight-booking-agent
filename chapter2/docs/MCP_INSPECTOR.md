@@ -23,59 +23,63 @@ The MCP Inspector is an official tool from the Model Context Protocol team that 
 
 ```bash
 cd chapter2
-CLIENT_PORT=8001 npx @modelcontextprotocol/inspector uv run flight-booking-mcp
+CLIENT_PORT=7274 SERVER_PORT=7277 npx @modelcontextprotocol/inspector uv run flight-booking-mcp
 ```
 
 This will:
-1. Start the MCP Inspector on port 8001
-2. Launch the flight-booking MCP server
-3. Connect the inspector to the server
+1. Start the MCP Inspector on port 7274
+2. Launch the MCP proxy server on port 7277
+3. Connect the inspector to the flight-booking MCP server
 
 ### Access the Inspector
 
 Open your browser and navigate to:
 ```
-http://localhost:8001
+http://localhost:7274
 ```
 
 ## Using MCP Inspector in Docker
 
-The Docker container has Node.js/npm pre-installed and port 8001 exposed for the inspector.
+The Docker container has Node.js/npm pre-installed with all ports pre-configured.
 
-### Option 1: Run Interactively
+### Available Services
+
+| Service | Port | URL |
+|---------|------|-----|
+| code-server (VS Code) | 8180 | http://localhost:8180 |
+| MCP Inspector | 7274 | http://localhost:7274 |
+| MCPJam Inspector | 8274 | http://localhost:8274 |
+| MCP Server | 9000 | http://localhost:9000 |
+
+### Start the Container
 
 ```bash
-# Start the container
+docker build -t flight-booking-agent .
+
 docker run -d \
   --name flight-booking-dev \
-  -p 8080:8080 \
-  -p 8000:8000 \
-  -p 8001:8001 \
-  -v $(pwd):/home/coder/workspace \
+  -p 8180:8180 \
+  -p 9000:9000 \
+  -p 8274:8274 \
+  -p 7274:7274 \
+  -p 7277:7277 \
   flight-booking-agent
+```
 
+All services start automatically via the `start-services.sh` script:
+- **code-server** on port 8180 (password: `mcpatscale`)
+- **MCP Inspector** on port 7274
+- **MCPJam Inspector** on port 8274
+
+### Access Interactively
+
+```bash
 # Access the container
 docker exec -it flight-booking-dev bash
 
-# Run the inspector
+# Run the inspector manually (if needed)
 cd workspace/chapter2
-npx @modelcontextprotocol/inspector uv run flight-booking-mcp
-```
-
-Then open `http://localhost:8001` in your browser.
-
-### Option 2: Run in Background (Advanced)
-
-You can create a startup script to run both code-server and the MCP inspector:
-
-```bash
-#!/bin/bash
-# Start code-server in the background
-/home/coder/.local/bin/code-server /home/coder/workspace &
-
-# Start MCP Inspector
-cd /home/coder/workspace/chapter2
-CLIENT_PORT=8001 npx @modelcontextprotocol/inspector uv run flight-booking-mcp
+CLIENT_PORT=7274 SERVER_PORT=7277 npx @modelcontextprotocol/inspector uv run flight-booking-mcp
 ```
 
 ## Using the Inspector Interface
@@ -181,9 +185,9 @@ View server metadata:
 - Solution: Ensure Node.js and npm are installed
 - Check: `node --version && npm --version`
 
-**Error: Port 8001 already in use**
+**Error: Port 7274 already in use**
 - Solution: Use a different port
-- Command: `CLIENT_PORT=8002 npx @modelcontextprotocol/inspector uv run flight-booking-mcp`
+- Command: `CLIENT_PORT=7275 SERVER_PORT=7278 npx @modelcontextprotocol/inspector uv run flight-booking-mcp`
 
 ### Inspector Can't Connect to Server
 
@@ -198,13 +202,18 @@ View server metadata:
 - Use YYYY-MM-DD format (e.g., "2025-01-20")
 
 **Error: Airport not found**
-- Check airport codes in the data/airports.json file
+- Check airport codes in the pyflight-internal data files
 - Valid codes: JFK, LHR, CDG, NRT, DXB, etc.
 
 ## Environment Variables
 
-- `CLIENT_PORT`: Port for the inspector web interface (default: 6006)
-- Set in Docker: Already configured to 8001
+- `CLIENT_PORT`: Port for the inspector web interface (default: 6274)
+- `SERVER_PORT`: Port for the MCP proxy server (default: 6277)
+- `DANGEROUSLY_OMIT_AUTH`: Set to `true` to disable authentication (used in Docker)
+
+## MCPJam Inspector
+
+In addition to the official MCP Inspector, the Docker container also includes [MCPJam Inspector](https://www.mcpjam.com/) on port 8274. MCPJam provides an alternative UI for inspecting and testing MCP servers.
 
 ## Alternative Testing Methods
 
@@ -258,6 +267,7 @@ asyncio.run(test_server())
 ## Resources
 
 - [MCP Inspector GitHub](https://github.com/modelcontextprotocol/inspector)
+- [MCPJam Inspector](https://www.mcpjam.com/)
 - [MCP Documentation](https://modelcontextprotocol.io)
 - [Flight Booking Server Docs](MCP_SERVER.md)
 - [Chapter 2 README](README.md)

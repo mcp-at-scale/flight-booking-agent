@@ -6,7 +6,11 @@ requires-python = ">=3.10"
 dependencies = [
     "pydantic>=2.12.4",
     "mcp[cli] @ git+https://github.com/modelcontextprotocol/python-sdk.git",
+    "pyflight-internal",
 ]
+
+[tool.uv.sources]
+pyflight-internal = { path = "../pyflight-internal" }
 
 [project.scripts]
 flight-booking-mcp = "chapter2.mcp_server:main"

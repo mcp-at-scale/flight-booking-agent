@@ -71,7 +71,7 @@ RUN cd chapter2 && uv sync
 
 # Configure code-server
 RUN mkdir -p /home/coder/.config/code-server && \
-    echo "bind-addr: 0.0.0.0:8080" > /home/coder/.config/code-server/config.yaml && \
+    echo "bind-addr: 0.0.0.0:8180" > /home/coder/.config/code-server/config.yaml && \
     echo "auth: password" >> /home/coder/.config/code-server/config.yaml && \
     echo "password: mcpatscale" >> /home/coder/.config/code-server/config.yaml && \
     echo "cert: false" >> /home/coder/.config/code-server/config.yaml
@@ -86,15 +86,15 @@ RUN ~/.local/bin/code-server --install-extension ms-python.python || true && \
 # 8080: code-server (web-based VS Code)
 # 8000: MCP server
 # 8001: MCP Inspector
-EXPOSE 8080
-EXPOSE 8000
-EXPOSE 16274
+EXPOSE 8180
+EXPOSE 9000
+EXPOSE 8274
 EXPOSE 7274
 EXPOSE 7277
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:8080/healthz || exit 1
+    CMD curl -f http://localhost:8180/healthz || exit 1
 
 # Start both code-server and MCP Inspector
 CMD ["/bin/bash", "/home/coder/start-services.sh"]

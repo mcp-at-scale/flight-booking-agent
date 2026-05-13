@@ -5,9 +5,9 @@ All flights are considered daily operations.
 
 from datetime import datetime, timedelta
 from typing import Union
-from chapter2.flights import get_flights_by_route, get_flight_for_date, get_all_daily_flight_templates
-from chapter2.airports import get_airport_by_code
-from chapter2.models import Flight, ConnectingFlight, SearchResult
+from pyflight_internal.flights import get_flights_by_route, get_flight_for_date, get_all_daily_flight_templates
+from pyflight_internal.airports import get_airport_by_code
+from pyflight_internal.models import Flight, ConnectingFlight, SearchResult
 
 
 def search_direct_flights(

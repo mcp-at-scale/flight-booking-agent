@@ -4,13 +4,13 @@ Tests for flight search functionality.
 
 import pytest
 from datetime import datetime
-from chapter2.search import (
+from pyflight_internal.search import (
     search_direct_flights,
     search_flights_with_one_layover,
     search_all_flights,
     format_flight_summary
 )
-from chapter2.models import Flight, ConnectingFlight, SearchResult
+from pyflight_internal.models import Flight, ConnectingFlight, SearchResult
 
 
 def test_search_direct_flights():

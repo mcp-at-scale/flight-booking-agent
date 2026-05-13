@@ -5,7 +5,7 @@ Airline data management for the flight booking system.
 import json
 from pathlib import Path
 from typing import Optional
-from chapter2.models import Airline
+from pyflight_internal.models import Airline
 
 # Load airlines data
 _DATA_DIR = Path(__file__).parent / "data"

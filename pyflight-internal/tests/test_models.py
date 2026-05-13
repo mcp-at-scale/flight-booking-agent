@@ -4,7 +4,7 @@ Tests for Pydantic models.
 
 import pytest
 from pydantic import ValidationError
-from chapter2.models import Airline, Airport, FlightTemplate, Flight, ConnectingFlight
+from pyflight_internal.models import Airline, Airport, FlightTemplate, Flight, ConnectingFlight
 
 
 def test_airline_model():

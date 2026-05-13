@@ -3,9 +3,9 @@ Tests for data loading from JSON files.
 """
 
 import pytest
-from chapter2.airlines import get_all_airlines, get_airline_by_code
-from chapter2.airports import get_all_airports, get_airport_by_code
-from chapter2.flights import get_all_daily_flight_templates
+from pyflight_internal.airlines import get_all_airlines, get_airline_by_code
+from pyflight_internal.airports import get_all_airports, get_airport_by_code
+from pyflight_internal.flights import get_all_daily_flight_templates
 
 
 def test_load_airlines():

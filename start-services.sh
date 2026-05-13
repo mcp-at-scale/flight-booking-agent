@@ -43,7 +43,7 @@ echo "  MCPJam Inspector started (PID: $MCPJAM_PID)"
 
 # MCPJam binds to 127.0.0.1 only — forward 0.0.0.0:6274 -> 127.0.0.1:6274
 sleep 5
-socat TCP-LISTEN:16274,fork,reuseaddr,bind=0.0.0.0 TCP:127.0.0.1:6274 > /tmp/socat-mcpjam.log 2>&1 &
+socat TCP-LISTEN:8274,fork,reuseaddr,bind=0.0.0.0 TCP:127.0.0.1:6274 > /tmp/socat-mcpjam.log 2>&1 &
 echo "  socat forward for MCPJam started"
 
 # Start MCP Inspector in the foreground
