@@ -23,7 +23,6 @@ RUN apt-get update && apt-get install -y \
     sudo \
     net-tools \
     procps \
-    socat \
     && rm -rf /var/lib/apt/lists/*
 
 # Create a non-root user
@@ -66,8 +65,11 @@ COPY --chown=coder:coder . /home/coder/workspace
 # Set working directory to workspace
 WORKDIR /home/coder/workspace
 
-# Install project dependencies in chapter2
-RUN cd chapter2 && uv sync
+# Install project dependencies in examples
+RUN cd examples && uv sync
+
+# Pre-install MCPJam Inspector
+RUN . "$NVM_DIR/nvm.sh" && npm install @mcpjam/inspector@latest
 
 # Configure code-server
 RUN mkdir -p /home/coder/.config/code-server && \
@@ -83,14 +85,11 @@ RUN ~/.local/bin/code-server --install-extension ms-python.python || true && \
     ~/.local/bin/code-server --install-extension tamasfe.even-better-toml || true
 
 # Expose ports
-# 8080: code-server (web-based VS Code)
-# 8000: MCP server
-# 8001: MCP Inspector
 EXPOSE 8180
 EXPOSE 9000
-EXPOSE 8274
 EXPOSE 7274
-EXPOSE 7277
+EXPOSE 6274
+EXPOSE 6277
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
