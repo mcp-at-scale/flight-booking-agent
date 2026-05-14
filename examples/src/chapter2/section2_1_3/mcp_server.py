@@ -1,7 +1,8 @@
 from mcp.server import MCPServer
 
 mcp = MCPServer("flight-booking-agent", 
-                version="0.1.0")
+                version="0.1.0",
+                websiteUrl="https://mcp-at-scale.com/server")
 def main():
     mcp.run(transport="streamable-http", host="0.0.0.0", port=9000)
 
