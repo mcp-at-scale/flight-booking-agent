@@ -24,7 +24,7 @@ def test_get_airline_by_code():
     assert airline is not None
     assert airline.code == "FL"
     assert airline.name == "AeroLumière"
-    assert airline.country == "France"
+    assert airline.country == "FR"
 
 
 def test_get_airline_by_invalid_code():
@@ -51,7 +51,7 @@ def test_get_airport_by_code():
     assert airport.code == "CDG"
     assert airport.name == "Charles de Gaulle Airport"
     assert airport.city == "Paris"
-    assert airport.country == "France"
+    assert airport.country == "FR"
 
 
 def test_get_airport_by_invalid_code():

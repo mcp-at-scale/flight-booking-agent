@@ -12,19 +12,19 @@ def test_airline_model():
     airline = Airline(
         code="FL",
         name="AeroLumière",
-        country="France",
+        country="FR",
         fleet_size=220
     )
     
     assert airline.code == "FL"
     assert airline.name == "AeroLumière"
-    assert airline.country == "France"
+    assert airline.country == "FR"
     assert airline.fleet_size == 220
 
 
 def test_airline_frozen():
     """Test that Airline model is frozen (immutable)."""
-    airline = Airline(code="FL", name="AeroLumière", country="France", fleet_size=220)
+    airline = Airline(code="FL", name="AeroLumière", country="FR", fleet_size=220)
     
     with pytest.raises(ValidationError):
         airline.code = "XX"
@@ -42,7 +42,7 @@ def test_airport_model():
         code="CDG",
         name="Charles de Gaulle Airport",
         city="Paris",
-        country="France",
+        country="FR",
         timezone="Europe/Paris",
         latitude=49.0097,
         longitude=2.5479

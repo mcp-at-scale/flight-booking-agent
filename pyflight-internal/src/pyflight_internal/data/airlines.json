@@ -2,61 +2,61 @@
   {
     "code": "FL",
     "name": "AeroLumière",
-    "country": "France",
+    "country": "FR",
     "fleet_size": 220
   },
   {
     "code": "BS",
     "name": "Britannia Skies",
-    "country": "United Kingdom",
+    "country": "GB",
     "fleet_size": 250
   },
   {
     "code": "LS",
     "name": "Luftstrahl Airlines",
-    "country": "Germany",
+    "country": "DE",
     "fleet_size": 270
   },
   {
     "code": "AW",
     "name": "Atlas Airways",
-    "country": "United States",
+    "country": "US",
     "fleet_size": 870
   },
   {
     "code": "UY",
     "name": "Unity Air",
-    "country": "United States",
+    "country": "US",
     "fleet_size": 790
   },
   {
     "code": "HW",
     "name": "Horizon Wings",
-    "country": "United States",
+    "country": "US",
     "fleet_size": 900
   },
   {
     "code": "DF",
     "name": "Desert Falcon Airways",
-    "country": "United Arab Emirates",
+    "country": "AE",
     "fleet_size": 260
   },
   {
     "code": "PS",
     "name": "Pearl Skies",
-    "country": "Qatar",
+    "country": "QA",
     "fleet_size": 200
   },
   {
     "code": "MD",
     "name": "Meridian Air",
-    "country": "Singapore",
+    "country": "SG",
     "fleet_size": 140
   },
   {
     "code": "SK",
     "name": "Sakura Airlines",
-    "country": "Japan",
+    "country": "JP",
     "fleet_size": 160
   }
 ]
