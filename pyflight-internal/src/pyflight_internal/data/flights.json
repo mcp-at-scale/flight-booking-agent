@@ -6,7 +6,8 @@
     "destination": "JFK",
     "departure_time": "06:00",
     "duration_hours": 8.5,
-    "base_price": 650
+    "base_price": 650,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "FL003",
@@ -15,7 +16,8 @@
     "destination": "JFK",
     "departure_time": "14:00",
     "duration_hours": 8.5,
-    "base_price": 650
+    "base_price": 650,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "FL005",
@@ -24,7 +26,8 @@
     "destination": "JFK",
     "departure_time": "22:00",
     "duration_hours": 8.5,
-    "base_price": 650
+    "base_price": 650,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "FL002",
@@ -33,7 +36,8 @@
     "destination": "CDG",
     "departure_time": "06:00",
     "duration_hours": 7.5,
-    "base_price": 680
+    "base_price": 680,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "FL004",
@@ -42,7 +46,8 @@
     "destination": "CDG",
     "departure_time": "14:00",
     "duration_hours": 7.5,
-    "base_price": 680
+    "base_price": 680,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "FL006",
@@ -51,7 +56,8 @@
     "destination": "CDG",
     "departure_time": "22:00",
     "duration_hours": 7.5,
-    "base_price": 680
+    "base_price": 680,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "BS101",
@@ -60,7 +66,8 @@
     "destination": "JFK",
     "departure_time": "06:00",
     "duration_hours": 8.0,
-    "base_price": 620
+    "base_price": 620,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "BS103",
@@ -69,7 +76,8 @@
     "destination": "JFK",
     "departure_time": "14:00",
     "duration_hours": 8.0,
-    "base_price": 620
+    "base_price": 620,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "BS105",
@@ -78,7 +86,8 @@
     "destination": "JFK",
     "departure_time": "22:00",
     "duration_hours": 8.0,
-    "base_price": 620
+    "base_price": 620,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "BS102",
@@ -87,7 +96,8 @@
     "destination": "LHR",
     "departure_time": "06:00",
     "duration_hours": 7.0,
-    "base_price": 640
+    "base_price": 640,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "BS104",
@@ -96,7 +106,8 @@
     "destination": "LHR",
     "departure_time": "14:00",
     "duration_hours": 7.0,
-    "base_price": 640
+    "base_price": 640,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "BS106",
@@ -105,7 +116,8 @@
     "destination": "LHR",
     "departure_time": "22:00",
     "duration_hours": 7.0,
-    "base_price": 640
+    "base_price": 640,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "LS401",
@@ -114,7 +126,8 @@
     "destination": "ORD",
     "departure_time": "06:00",
     "duration_hours": 9.5,
-    "base_price": 700
+    "base_price": 700,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "LS403",
@@ -123,7 +136,8 @@
     "destination": "ORD",
     "departure_time": "14:00",
     "duration_hours": 9.5,
-    "base_price": 700
+    "base_price": 700,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "LS405",
@@ -132,7 +146,8 @@
     "destination": "ORD",
     "departure_time": "22:00",
     "duration_hours": 9.5,
-    "base_price": 700
+    "base_price": 700,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "LS402",
@@ -141,7 +156,8 @@
     "destination": "FRA",
     "departure_time": "06:00",
     "duration_hours": 8.5,
-    "base_price": 720
+    "base_price": 720,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "LS404",
@@ -150,7 +166,8 @@
     "destination": "FRA",
     "departure_time": "14:00",
     "duration_hours": 8.5,
-    "base_price": 720
+    "base_price": 720,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "LS406",
@@ -159,7 +176,8 @@
     "destination": "FRA",
     "departure_time": "22:00",
     "duration_hours": 8.5,
-    "base_price": 720
+    "base_price": 720,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "UY801",
@@ -168,7 +186,8 @@
     "destination": "LHR",
     "departure_time": "06:00",
     "duration_hours": 10.5,
-    "base_price": 850
+    "base_price": 850,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "UY803",
@@ -177,7 +196,8 @@
     "destination": "LHR",
     "departure_time": "14:00",
     "duration_hours": 10.5,
-    "base_price": 850
+    "base_price": 850,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "UY805",
@@ -186,7 +206,8 @@
     "destination": "LHR",
     "departure_time": "22:00",
     "duration_hours": 10.5,
-    "base_price": 850
+    "base_price": 850,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "UY802",
@@ -195,7 +216,8 @@
     "destination": "SFO",
     "departure_time": "06:00",
     "duration_hours": 11.0,
-    "base_price": 880
+    "base_price": 880,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "UY804",
@@ -204,7 +226,8 @@
     "destination": "SFO",
     "departure_time": "14:00",
     "duration_hours": 11.0,
-    "base_price": 880
+    "base_price": 880,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "UY806",
@@ -213,7 +236,8 @@
     "destination": "SFO",
     "departure_time": "22:00",
     "duration_hours": 11.0,
-    "base_price": 880
+    "base_price": 880,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "AW201",
@@ -222,7 +246,8 @@
     "destination": "LAX",
     "departure_time": "06:00",
     "duration_hours": 6.0,
-    "base_price": 320
+    "base_price": 320,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "AW203",
@@ -231,7 +256,8 @@
     "destination": "LAX",
     "departure_time": "14:00",
     "duration_hours": 6.0,
-    "base_price": 320
+    "base_price": 320,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "AW205",
@@ -240,7 +266,8 @@
     "destination": "LAX",
     "departure_time": "22:00",
     "duration_hours": 6.0,
-    "base_price": 320
+    "base_price": 320,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "AW202",
@@ -249,7 +276,8 @@
     "destination": "JFK",
     "departure_time": "06:00",
     "duration_hours": 5.5,
-    "base_price": 340
+    "base_price": 340,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "AW204",
@@ -258,7 +286,8 @@
     "destination": "JFK",
     "departure_time": "14:00",
     "duration_hours": 5.5,
-    "base_price": 340
+    "base_price": 340,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "AW206",
@@ -267,7 +296,8 @@
     "destination": "JFK",
     "departure_time": "22:00",
     "duration_hours": 5.5,
-    "base_price": 340
+    "base_price": 340,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "HW301",
@@ -276,7 +306,8 @@
     "destination": "SFO",
     "departure_time": "06:00",
     "duration_hours": 6.5,
-    "base_price": 350
+    "base_price": 350,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "HW303",
@@ -285,7 +316,8 @@
     "destination": "SFO",
     "departure_time": "14:00",
     "duration_hours": 6.5,
-    "base_price": 350
+    "base_price": 350,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "HW305",
@@ -294,7 +326,8 @@
     "destination": "SFO",
     "departure_time": "22:00",
     "duration_hours": 6.5,
-    "base_price": 350
+    "base_price": 350,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "HW302",
@@ -303,7 +336,8 @@
     "destination": "JFK",
     "departure_time": "06:00",
     "duration_hours": 5.5,
-    "base_price": 360
+    "base_price": 360,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "HW304",
@@ -312,7 +346,8 @@
     "destination": "JFK",
     "departure_time": "14:00",
     "duration_hours": 5.5,
-    "base_price": 360
+    "base_price": 360,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "HW306",
@@ -321,7 +356,8 @@
     "destination": "JFK",
     "departure_time": "22:00",
     "duration_hours": 5.5,
-    "base_price": 360
+    "base_price": 360,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "UY501",
@@ -330,7 +366,8 @@
     "destination": "LAX",
     "departure_time": "06:00",
     "duration_hours": 4.5,
-    "base_price": 280
+    "base_price": 280,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "UY503",
@@ -339,7 +376,8 @@
     "destination": "LAX",
     "departure_time": "14:00",
     "duration_hours": 4.5,
-    "base_price": 280
+    "base_price": 280,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "UY505",
@@ -348,7 +386,8 @@
     "destination": "LAX",
     "departure_time": "22:00",
     "duration_hours": 4.5,
-    "base_price": 280
+    "base_price": 280,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "UY502",
@@ -357,7 +396,8 @@
     "destination": "ORD",
     "departure_time": "06:00",
     "duration_hours": 4.0,
-    "base_price": 290
+    "base_price": 290,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "UY504",
@@ -366,7 +406,8 @@
     "destination": "ORD",
     "departure_time": "14:00",
     "duration_hours": 4.0,
-    "base_price": 290
+    "base_price": 290,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "UY506",
@@ -375,7 +416,8 @@
     "destination": "ORD",
     "departure_time": "22:00",
     "duration_hours": 4.0,
-    "base_price": 290
+    "base_price": 290,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "FL101",
@@ -384,7 +426,8 @@
     "destination": "FCO",
     "departure_time": "06:00",
     "duration_hours": 2.0,
-    "base_price": 180
+    "base_price": 180,
+    "aircraft": "Zephyr Z200"
   },
   {
     "flight_number": "FL103",
@@ -393,7 +436,8 @@
     "destination": "FCO",
     "departure_time": "14:00",
     "duration_hours": 2.0,
-    "base_price": 180
+    "base_price": 180,
+    "aircraft": "Zephyr Z200"
   },
   {
     "flight_number": "FL105",
@@ -402,7 +446,8 @@
     "destination": "FCO",
     "departure_time": "22:00",
     "duration_hours": 2.0,
-    "base_price": 180
+    "base_price": 180,
+    "aircraft": "Zephyr Z200"
   },
   {
     "flight_number": "FL102",
@@ -411,7 +456,8 @@
     "destination": "CDG",
     "departure_time": "06:00",
     "duration_hours": 2.0,
-    "base_price": 180
+    "base_price": 180,
+    "aircraft": "Zephyr Z200"
   },
   {
     "flight_number": "FL104",
@@ -420,7 +466,8 @@
     "destination": "CDG",
     "departure_time": "14:00",
     "duration_hours": 2.0,
-    "base_price": 180
+    "base_price": 180,
+    "aircraft": "Zephyr Z200"
   },
   {
     "flight_number": "FL106",
@@ -429,7 +476,8 @@
     "destination": "CDG",
     "departure_time": "22:00",
     "duration_hours": 2.0,
-    "base_price": 180
+    "base_price": 180,
+    "aircraft": "Zephyr Z200"
   },
   {
     "flight_number": "BS201",
@@ -438,7 +486,8 @@
     "destination": "AMS",
     "departure_time": "06:00",
     "duration_hours": 1.5,
-    "base_price": 150
+    "base_price": 150,
+    "aircraft": "Zephyr Z200"
   },
   {
     "flight_number": "BS203",
@@ -447,7 +496,8 @@
     "destination": "AMS",
     "departure_time": "14:00",
     "duration_hours": 1.5,
-    "base_price": 150
+    "base_price": 150,
+    "aircraft": "Zephyr Z200"
   },
   {
     "flight_number": "BS205",
@@ -456,7 +506,8 @@
     "destination": "AMS",
     "departure_time": "22:00",
     "duration_hours": 1.5,
-    "base_price": 150
+    "base_price": 150,
+    "aircraft": "Zephyr Z200"
   },
   {
     "flight_number": "BS202",
@@ -465,7 +516,8 @@
     "destination": "LHR",
     "departure_time": "06:00",
     "duration_hours": 1.5,
-    "base_price": 150
+    "base_price": 150,
+    "aircraft": "Zephyr Z200"
   },
   {
     "flight_number": "BS204",
@@ -474,7 +526,8 @@
     "destination": "LHR",
     "departure_time": "14:00",
     "duration_hours": 1.5,
-    "base_price": 150
+    "base_price": 150,
+    "aircraft": "Zephyr Z200"
   },
   {
     "flight_number": "BS206",
@@ -483,7 +536,8 @@
     "destination": "LHR",
     "departure_time": "22:00",
     "duration_hours": 1.5,
-    "base_price": 150
+    "base_price": 150,
+    "aircraft": "Zephyr Z200"
   },
   {
     "flight_number": "LS201",
@@ -492,7 +546,8 @@
     "destination": "BCN",
     "departure_time": "06:00",
     "duration_hours": 2.5,
-    "base_price": 200
+    "base_price": 200,
+    "aircraft": "Zephyr Z200"
   },
   {
     "flight_number": "LS203",
@@ -501,7 +556,8 @@
     "destination": "BCN",
     "departure_time": "14:00",
     "duration_hours": 2.5,
-    "base_price": 200
+    "base_price": 200,
+    "aircraft": "Zephyr Z200"
   },
   {
     "flight_number": "LS205",
@@ -510,7 +566,8 @@
     "destination": "BCN",
     "departure_time": "22:00",
     "duration_hours": 2.5,
-    "base_price": 200
+    "base_price": 200,
+    "aircraft": "Zephyr Z200"
   },
   {
     "flight_number": "LS202",
@@ -519,7 +576,8 @@
     "destination": "FRA",
     "departure_time": "06:00",
     "duration_hours": 2.5,
-    "base_price": 200
+    "base_price": 200,
+    "aircraft": "Zephyr Z200"
   },
   {
     "flight_number": "LS204",
@@ -528,7 +586,8 @@
     "destination": "FRA",
     "departure_time": "14:00",
     "duration_hours": 2.5,
-    "base_price": 200
+    "base_price": 200,
+    "aircraft": "Zephyr Z200"
   },
   {
     "flight_number": "LS206",
@@ -537,7 +596,8 @@
     "destination": "FRA",
     "departure_time": "22:00",
     "duration_hours": 2.5,
-    "base_price": 200
+    "base_price": 200,
+    "aircraft": "Zephyr Z200"
   },
   {
     "flight_number": "DF201",
@@ -546,7 +606,8 @@
     "destination": "LHR",
     "departure_time": "06:00",
     "duration_hours": 7.5,
-    "base_price": 550
+    "base_price": 550,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "DF203",
@@ -555,7 +616,8 @@
     "destination": "LHR",
     "departure_time": "14:00",
     "duration_hours": 7.5,
-    "base_price": 550
+    "base_price": 550,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "DF205",
@@ -564,7 +626,8 @@
     "destination": "LHR",
     "departure_time": "22:00",
     "duration_hours": 7.5,
-    "base_price": 550
+    "base_price": 550,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "DF202",
@@ -573,7 +636,8 @@
     "destination": "DXB",
     "departure_time": "06:00",
     "duration_hours": 7.0,
-    "base_price": 580
+    "base_price": 580,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "DF204",
@@ -582,7 +646,8 @@
     "destination": "DXB",
     "departure_time": "14:00",
     "duration_hours": 7.0,
-    "base_price": 580
+    "base_price": 580,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "DF206",
@@ -591,7 +656,8 @@
     "destination": "DXB",
     "departure_time": "22:00",
     "duration_hours": 7.0,
-    "base_price": 580
+    "base_price": 580,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "DF301",
@@ -600,7 +666,8 @@
     "destination": "JFK",
     "departure_time": "06:00",
     "duration_hours": 14.0,
-    "base_price": 900
+    "base_price": 900,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "DF303",
@@ -609,7 +676,8 @@
     "destination": "JFK",
     "departure_time": "14:00",
     "duration_hours": 14.0,
-    "base_price": 900
+    "base_price": 900,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "DF305",
@@ -618,7 +686,8 @@
     "destination": "JFK",
     "departure_time": "22:00",
     "duration_hours": 14.0,
-    "base_price": 900
+    "base_price": 900,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "DF302",
@@ -627,7 +696,8 @@
     "destination": "DXB",
     "departure_time": "06:00",
     "duration_hours": 12.5,
-    "base_price": 920
+    "base_price": 920,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "DF304",
@@ -636,7 +706,8 @@
     "destination": "DXB",
     "departure_time": "14:00",
     "duration_hours": 12.5,
-    "base_price": 920
+    "base_price": 920,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "DF306",
@@ -645,7 +716,8 @@
     "destination": "DXB",
     "departure_time": "22:00",
     "duration_hours": 12.5,
-    "base_price": 920
+    "base_price": 920,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "PS101",
@@ -654,7 +726,8 @@
     "destination": "CDG",
     "departure_time": "06:00",
     "duration_hours": 7.0,
-    "base_price": 520
+    "base_price": 520,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "PS103",
@@ -663,7 +736,8 @@
     "destination": "CDG",
     "departure_time": "14:00",
     "duration_hours": 7.0,
-    "base_price": 520
+    "base_price": 520,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "PS105",
@@ -672,7 +746,8 @@
     "destination": "CDG",
     "departure_time": "22:00",
     "duration_hours": 7.0,
-    "base_price": 520
+    "base_price": 520,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "PS102",
@@ -681,7 +756,8 @@
     "destination": "DOH",
     "departure_time": "06:00",
     "duration_hours": 6.5,
-    "base_price": 540
+    "base_price": 540,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "PS104",
@@ -690,7 +766,8 @@
     "destination": "DOH",
     "departure_time": "14:00",
     "duration_hours": 6.5,
-    "base_price": 540
+    "base_price": 540,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "PS106",
@@ -699,7 +776,8 @@
     "destination": "DOH",
     "departure_time": "22:00",
     "duration_hours": 6.5,
-    "base_price": 540
+    "base_price": 540,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "MD401",
@@ -708,7 +786,8 @@
     "destination": "LHR",
     "departure_time": "06:00",
     "duration_hours": 13.5,
-    "base_price": 850
+    "base_price": 850,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "MD403",
@@ -717,7 +796,8 @@
     "destination": "LHR",
     "departure_time": "14:00",
     "duration_hours": 13.5,
-    "base_price": 850
+    "base_price": 850,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "MD405",
@@ -726,7 +806,8 @@
     "destination": "LHR",
     "departure_time": "22:00",
     "duration_hours": 13.5,
-    "base_price": 850
+    "base_price": 850,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "MD402",
@@ -735,7 +816,8 @@
     "destination": "SIN",
     "departure_time": "06:00",
     "duration_hours": 13.0,
-    "base_price": 870
+    "base_price": 870,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "MD404",
@@ -744,7 +826,8 @@
     "destination": "SIN",
     "departure_time": "14:00",
     "duration_hours": 13.0,
-    "base_price": 870
+    "base_price": 870,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "MD406",
@@ -753,7 +836,8 @@
     "destination": "SIN",
     "departure_time": "22:00",
     "duration_hours": 13.0,
-    "base_price": 870
+    "base_price": 870,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "MD501",
@@ -762,7 +846,8 @@
     "destination": "SFO",
     "departure_time": "06:00",
     "duration_hours": 16.0,
-    "base_price": 950
+    "base_price": 950,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "MD503",
@@ -771,7 +856,8 @@
     "destination": "SFO",
     "departure_time": "14:00",
     "duration_hours": 16.0,
-    "base_price": 950
+    "base_price": 950,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "MD505",
@@ -780,7 +866,8 @@
     "destination": "SFO",
     "departure_time": "22:00",
     "duration_hours": 16.0,
-    "base_price": 950
+    "base_price": 950,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "MD502",
@@ -789,7 +876,8 @@
     "destination": "SIN",
     "departure_time": "06:00",
     "duration_hours": 15.5,
-    "base_price": 980
+    "base_price": 980,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "MD504",
@@ -798,7 +886,8 @@
     "destination": "SIN",
     "departure_time": "14:00",
     "duration_hours": 15.5,
-    "base_price": 980
+    "base_price": 980,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "MD506",
@@ -807,7 +896,8 @@
     "destination": "SIN",
     "departure_time": "22:00",
     "duration_hours": 15.5,
-    "base_price": 980
+    "base_price": 980,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "SK701",
@@ -816,7 +906,8 @@
     "destination": "LAX",
     "departure_time": "06:00",
     "duration_hours": 10.0,
-    "base_price": 750
+    "base_price": 750,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "SK703",
@@ -825,7 +916,8 @@
     "destination": "LAX",
     "departure_time": "14:00",
     "duration_hours": 10.0,
-    "base_price": 750
+    "base_price": 750,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "SK705",
@@ -834,7 +926,8 @@
     "destination": "LAX",
     "departure_time": "22:00",
     "duration_hours": 10.0,
-    "base_price": 750
+    "base_price": 750,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "SK702",
@@ -843,7 +936,8 @@
     "destination": "NRT",
     "departure_time": "06:00",
     "duration_hours": 11.5,
-    "base_price": 780
+    "base_price": 780,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "SK704",
@@ -852,7 +946,8 @@
     "destination": "NRT",
     "departure_time": "14:00",
     "duration_hours": 11.5,
-    "base_price": 780
+    "base_price": 780,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "SK706",
@@ -861,7 +956,8 @@
     "destination": "NRT",
     "departure_time": "22:00",
     "duration_hours": 11.5,
-    "base_price": 780
+    "base_price": 780,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "SK801",
@@ -870,7 +966,8 @@
     "destination": "SFO",
     "departure_time": "06:00",
     "duration_hours": 9.5,
-    "base_price": 720
+    "base_price": 720,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "SK803",
@@ -879,7 +976,8 @@
     "destination": "SFO",
     "departure_time": "14:00",
     "duration_hours": 9.5,
-    "base_price": 720
+    "base_price": 720,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "SK805",
@@ -888,7 +986,8 @@
     "destination": "SFO",
     "departure_time": "22:00",
     "duration_hours": 9.5,
-    "base_price": 720
+    "base_price": 720,
+    "aircraft": "Stratos S500"
   },
   {
     "flight_number": "SK802",
@@ -897,7 +996,8 @@
     "destination": "HND",
     "departure_time": "06:00",
     "duration_hours": 11.0,
-    "base_price": 740
+    "base_price": 740,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "SK804",
@@ -906,7 +1006,8 @@
     "destination": "HND",
     "departure_time": "14:00",
     "duration_hours": 11.0,
-    "base_price": 740
+    "base_price": 740,
+    "aircraft": "Celestia C900"
   },
   {
     "flight_number": "SK806",
@@ -915,6 +1016,7 @@
     "destination": "HND",
     "departure_time": "22:00",
     "duration_hours": 11.0,
-    "base_price": 740
+    "base_price": 740,
+    "aircraft": "Celestia C900"
   }
 ]

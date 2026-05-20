@@ -1,0 +1,38 @@
+[
+  {
+    "model": "Zephyr Z200",
+    "manufacturer": "Zephyr Aerospace",
+    "range_category": "short_haul",
+    "max_range_km": 3500,
+    "seats": {
+      "business": {"rows": [1, 2, 3], "columns": ["A", "B", "C", "D"], "total": 12, "price_multiplier": 3.0},
+      "premium": {"rows": [4, 5, 6], "columns": ["A", "B", "C", "D", "E", "F"], "total": 18, "price_multiplier": 1.8},
+      "economy": {"rows": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], "columns": ["A", "B", "C", "D", "E", "F"], "total": 114, "price_multiplier": 1.0}
+    },
+    "total_seats": 144
+  },
+  {
+    "model": "Stratos S500",
+    "manufacturer": "Stratos Aviation",
+    "range_category": "medium_haul",
+    "max_range_km": 8000,
+    "seats": {
+      "business": {"rows": [1, 2, 3, 4], "columns": ["A", "C", "D", "F"], "total": 16, "price_multiplier": 3.5},
+      "premium": {"rows": [5, 6, 7, 8], "columns": ["A", "B", "C", "D", "E", "F"], "total": 24, "price_multiplier": 2.0},
+      "economy": {"rows": [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35], "columns": ["A", "B", "C", "D", "E", "F"], "total": 162, "price_multiplier": 1.0}
+    },
+    "total_seats": 202
+  },
+  {
+    "model": "Celestia C900",
+    "manufacturer": "Celestia Industries",
+    "range_category": "long_haul",
+    "max_range_km": 15000,
+    "seats": {
+      "business": {"rows": [1, 2, 3, 4, 5, 6], "columns": ["A", "C", "D", "F"], "total": 24, "price_multiplier": 4.0},
+      "premium": {"rows": [7, 8, 9, 10, 11], "columns": ["A", "B", "C", "D", "E", "F", "G", "H"], "total": 40, "price_multiplier": 2.2},
+      "economy": {"rows": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45], "columns": ["A", "B", "C", "D", "E", "F", "G", "H", "J"], "total": 306, "price_multiplier": 1.0}
+    },
+    "total_seats": 370
+  }
+]

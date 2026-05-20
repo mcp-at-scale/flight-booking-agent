@@ -32,6 +32,50 @@ class Airport(BaseModel):
     longitude: float = Field(..., ge=-180, le=180, description="Longitude coordinate")
 
 
+class SeatSection(BaseModel):
+    """Model for a seat section within an aircraft."""
+
+    model_config = ConfigDict(frozen=True)
+
+    rows: list[int] = Field(..., description="Row numbers in this section")
+    columns: list[str] = Field(..., description="Column letters (e.g., A, B, C)")
+    total: int = Field(..., ge=0, description="Total seats in this section")
+    price_multiplier: float = Field(..., gt=0, description="Price multiplier relative to economy")
+
+
+class Aircraft(BaseModel):
+    """Model for an aircraft type with seat layout."""
+
+    model_config = ConfigDict(frozen=True)
+
+    model: str = Field(..., description="Aircraft model name")
+    manufacturer: str = Field(..., description="Aircraft manufacturer")
+    range_category: str = Field(..., pattern=r"^(short_haul|medium_haul|long_haul)$", description="Range category")
+    max_range_km: int = Field(..., gt=0, description="Maximum range in kilometers")
+    seats: dict[str, SeatSection] = Field(..., description="Seat sections by category (business, premium, economy)")
+    total_seats: int = Field(..., gt=0, description="Total number of seats")
+
+    def get_seat_category(self, seat: str) -> Optional[str]:
+        """Return the category (business/premium/economy) for a given seat like '12A'."""
+        row = int("".join(c for c in seat if c.isdigit()))
+        col = "".join(c for c in seat if c.isalpha())
+        for category, section in self.seats.items():
+            if row in section.rows and col in section.columns:
+                return category
+        return None
+
+    def list_seats(self, category: Optional[str] = None) -> list[str]:
+        """List all seat numbers, optionally filtered by category."""
+        seats = []
+        for cat, section in self.seats.items():
+            if category and cat != category:
+                continue
+            for row in section.rows:
+                for col in section.columns:
+                    seats.append(f"{row}{col}")
+        return seats
+
+
 class FlightTemplate(BaseModel):
     """Model for a daily flight template."""
 
@@ -44,6 +88,7 @@ class FlightTemplate(BaseModel):
     departure_time: str = Field(..., pattern=r"^\d{2}:\d{2}$", description="Departure time in HH:MM format")
     duration_hours: float = Field(..., gt=0, description="Flight duration in hours")
     base_price: float = Field(..., gt=0, description="Base price in USD")
+    aircraft: str = Field(..., description="Aircraft model name")
 
 
 class Flight(BaseModel):
@@ -58,10 +103,11 @@ class Flight(BaseModel):
     departure: str = Field(..., description="Departure datetime in ISO format")
     arrival: str = Field(..., description="Arrival datetime in ISO format")
     duration_hours: float = Field(..., gt=0, description="Flight duration in hours")
+    aircraft: str = Field(..., description="Aircraft model name")
     price: float = Field(..., gt=0, description="Flight price in USD")
     currency: str = Field(default="USD", description="Currency code")
-    available_seats: int = Field(..., ge=0, le=180, description="Number of available seats")
-    total_seats: int = Field(default=180, ge=0, description="Total seats on aircraft")
+    available_seats: int = Field(..., ge=0, description="Number of available seats")
+    total_seats: int = Field(..., ge=0, description="Total seats on aircraft")
     status: str = Field(..., pattern=r"^(scheduled|sold_out|cancelled|delayed)$", description="Flight status")
 
 
