@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Review your booking</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 0; padding: 16px;
+           background: #f5f5f7; color: #222; }
+    .card { background: white; border-radius: 8px; padding: 20px;
+            max-width: 360px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+    h2 { margin: 0 0 16px 0; font-size: 16px; }
+    .row { display: flex; justify-content: space-between;
+           padding: 8px 0; font-size: 14px;
+           border-bottom: 1px solid #eee; }
+    .row:last-of-type { border-bottom: none; }
+    .row .label { color: #666; }
+    .total { font-weight: 600; font-size: 15px; }
+    .form { margin-top: 16px; }
+    label { display: block; font-size: 13px; color: #444;
+            margin-bottom: 4px; margin-top: 10px; }
+    input { width: 100%; box-sizing: border-box;
+            padding: 8px 10px; border: 1px solid #bbb;
+            border-radius: 4px; font-size: 13px; }
+    button { width: 100%; margin-top: 16px; padding: 10px;
+             border: none; border-radius: 6px;
+             background: #1a73e8; color: white; cursor: pointer;
+             font-size: 14px; }
+    button:hover { background: #1558b0; }
+    button:disabled { background: #aac4f0; cursor: wait; }
+    #status { margin-top: 10px; font-size: 12px; color: #666;
+              min-height: 16px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Review your booking</h2>
+    <div class="row"><span class="label">Flight</span><span>{{FLIGHT}}</span></div>
+    <div class="row"><span class="label">Seat</span><span>{{SEAT}}</span></div>
+    <div class="row"><span class="label">Passenger</span><span>{{PASSENGER}}</span></div>
+    <div class="row total"><span>Total</span><span>{{PRICE}}</span></div>
+    <div class="form">
+      <label for="email">Email for confirmation</label>
+      <input id="email" type="email" placeholder="jane@example.com">
+      <label for="token">Payment token</label>
+      <input id="token" placeholder="tok_test_…">
+    </div>
+    <button id="confirm">Confirm booking</button>
+    <div id="status"></div>
+  </div>
+  <script>
+    const HOLD_ID = "{{HOLD_ID}}";
+
+    document.getElementById("confirm").addEventListener("click", () => {
+      const email = document.getElementById("email").value.trim();
+      const token = document.getElementById("token").value.trim();
+      const status = document.getElementById("status");
+      const button = document.getElementById("confirm");
+      if (!email || !token) {
+        status.textContent = "Both email and payment token are required.";
+        return;
+      }
+      button.disabled = true;
+      status.textContent = "Booking…";
+      window.parent.postMessage({
+        type: "tool",
+        payload: {
+          toolName: "book_flight",
+          params: {
+            hold_id: HOLD_ID,
+            email: email,
+            payment_token: token,
+          },
+        },
+        messageId: crypto.randomUUID(),
+      }, "*");
+    });
+  </script>
+</body>
+</html>

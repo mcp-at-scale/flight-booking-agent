@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Seat map: {{FLIGHT_NUMBER}}</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 0; padding: 16px;
+           background: #f5f5f7; color: #222; }
+    h2 { margin: 0 0 12px 0; font-size: 16px; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 16px; }
+    .legend { display: flex; gap: 12px; font-size: 11px; color: #666;
+              margin-bottom: 12px; }
+    .legend .swatch { display: inline-block; width: 14px; height: 14px;
+                      border-radius: 3px; vertical-align: middle;
+                      margin-right: 4px; border: 1px solid #bbb; }
+    .swatch.free { background: white; }
+    .swatch.held { background: #ddd; }
+    .swatch.exit { background: white; border-color: #d83a3a; }
+    .form { margin-bottom: 16px; }
+    label { font-size: 13px; }
+    input { padding: 6px 8px; border: 1px solid #bbb; border-radius: 4px;
+            margin-left: 6px; font-size: 13px; }
+    .cabin { display: grid; grid-template-columns: 24px repeat(6, 36px);
+             gap: 4px; }
+    .colhead, .rowhead { font-size: 11px; color: #888; text-align: center;
+                         padding-top: 6px; }
+    .seat { width: 36px; height: 36px; border: 1px solid #bbb;
+            border-radius: 4px; background: white; cursor: pointer;
+            font-size: 10px; padding: 0; }
+    .seat:hover:not(:disabled) { background: #e6f0ff; }
+    .seat.held { background: #ddd; cursor: not-allowed; color: #999; }
+    .seat.exit { border-color: #d83a3a; }
+    #status { margin-top: 12px; font-size: 12px; color: #1a73e8;
+              min-height: 16px; }
+  </style>
+</head>
+<body>
+  <h2>Pick a seat on flight {{FLIGHT_NUMBER}}</h2>
+  <p class="meta">Rows 1 and 6 are emergency exits with extra legroom.
+     Held seats are not selectable.</p>
+  <div class="legend">
+    <span><span class="swatch free"></span>Available</span>
+    <span><span class="swatch held"></span>Held</span>
+    <span><span class="swatch exit"></span>Exit row</span>
+  </div>
+  <div class="form">
+    <label for="name">Passenger name:</label>
+    <input id="name" placeholder="Jane Doe">
+  </div>
+  <div class="cabin" id="cabin"></div>
+  <div id="status"></div>
+  <script>
+    const FLIGHT = "{{FLIGHT_NUMBER}}";
+    const HELD = new Set({{HELD_SEATS}});
+    const ROWS = 12;
+    const COLS = ["A", "B", "C", "D", "E", "F"];
+    const EXIT_ROWS = new Set([1, 6]);
+
+    function buildCabin() {
+      const grid = document.getElementById("cabin");
+      grid.appendChild(document.createElement("div"));
+      COLS.forEach(c => {
+        const h = document.createElement("div");
+        h.className = "colhead";
+        h.textContent = c;
+        grid.appendChild(h);
+      });
+      for (let r = 1; r <= ROWS; r++) {
+        const rowLabel = document.createElement("div");
+        rowLabel.className = "rowhead";
+        rowLabel.textContent = r;
+        grid.appendChild(rowLabel);
+        COLS.forEach(c => {
+          const seat = `${r}${c}`;
+          const btn = document.createElement("button");
+          btn.className = "seat"
+            + (HELD.has(seat) ? " held" : "")
+            + (EXIT_ROWS.has(r) ? " exit" : "");
+          btn.textContent = seat;
+          btn.disabled = HELD.has(seat);
+          btn.addEventListener("click", () => pickSeat(seat));
+          grid.appendChild(btn);
+        });
+      }
+    }
+
+    function pickSeat(seatNumber) {
+      const name = document.getElementById("name").value.trim();
+      const status = document.getElementById("status");
+      if (!name) {
+        status.textContent = "Enter the passenger name first.";
+        return;
+      }
+      status.textContent = `Holding ${seatNumber} for ${name}…`;
+      window.parent.postMessage({
+        type: "tool",
+        payload: {
+          toolName: "hold_seat",
+          params: {
+            flight_number: FLIGHT,
+            seat_number: seatNumber,
+            passenger_name: name,
+          },
+        },
+        messageId: crypto.randomUUID(),
+      }, "*");
+    }
+
+    buildCabin();
+  </script>
+</body>
+</html>
