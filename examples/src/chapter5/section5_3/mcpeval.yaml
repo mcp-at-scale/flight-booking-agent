@@ -1,0 +1,27 @@
+# mcp-eval configuration for the flight-booking server eval suite.
+# Read by mcp-eval at pytest startup; the framework constructs the
+# mcp_agent fixture from these settings.
+
+provider: anthropic
+model: claude-sonnet-4-5
+
+mcp_servers:
+  flight-booking:
+    # mcp-eval spawns the server as a subprocess for the duration of
+    # the test run. Run from the examples/ directory so relative imports
+    # of chapter3.section3_5 resolve.
+    command: ["uv", "run", "python", "-m", "chapter3.section3_5.mcp_server"]
+    args: []
+    # Inject a demo OAuth token at handshake time so the tools' auth
+    # checks pass. The eval suite tests tool selection, not auth.
+    headers:
+      Authorization: "Bearer ${EVAL_DEMO_TOKEN}"
+
+# The framework reads the LLM provider key from this env var.
+api_key_env: ANTHROPIC_API_KEY
+
+# Tag the runs so OpenTelemetry-backed metrics group eval traces
+# separately from production traces.
+trace_attributes:
+  test.suite: "chapter5/section5_3"
+  test.layer: "eval"
