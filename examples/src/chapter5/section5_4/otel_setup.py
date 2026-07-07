@@ -26,7 +26,7 @@ from __future__ import annotations
 import os
 import time
 
-from opentelemetry import metrics, propagators, trace
+from opentelemetry import metrics, propagate, trace
 from opentelemetry.exporter.otlp.proto.grpc.metric_exporter import OTLPMetricExporter
 from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
 from opentelemetry.propagators.composite import CompositePropagator
@@ -76,7 +76,7 @@ def setup_otel() -> None:
     # W3C Trace Context + Baggage propagators so SEP-414's _meta keys
     # interoperate with upstream hosts and downstream services that
     # speak standard OTEL propagation.
-    propagators.set_global_textmap(
+    propagate.set_global_textmap(
         CompositePropagator([
             TraceContextTextMapPropagator(),
             W3CBaggagePropagator(),
@@ -113,7 +113,7 @@ def continue_trace_from_meta(meta: dict | None):
     """
     if not meta:
         return None
-    return propagators.get_global_textmap().extract(
+    return propagate.get_global_textmap().extract(
         carrier=meta,
         getter=DefaultGetter(),
     )
