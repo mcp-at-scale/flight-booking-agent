@@ -18,7 +18,7 @@ import pytest
 from chapter3.section3_5 import mcp_server as server_module
 
 
-@pytest.mark.asyncio
+@pytest.mark.anyio
 async def test_tools_list_includes_expected_handlers(mcp_session):
     """tools/list reports every tool the chapter3/section3_5 server registers."""
     result = await mcp_session.list_tools()
@@ -32,7 +32,7 @@ async def test_tools_list_includes_expected_handlers(mcp_session):
     }
 
 
-@pytest.mark.asyncio
+@pytest.mark.anyio
 async def test_search_flights_through_session(mcp_session):
     """tools/call routes to search_flights and the result comes back intact."""
     result = await mcp_session.call_tool(
@@ -43,7 +43,7 @@ async def test_search_flights_through_session(mcp_session):
     assert "FL001" in text
 
 
-@pytest.mark.asyncio
+@pytest.mark.anyio
 async def test_full_booking_workflow(mcp_session):
     """search -> hold -> book -> list. The workflow that the LLM drives."""
     # Search
@@ -77,7 +77,7 @@ async def test_full_booking_workflow(mcp_session):
     assert "FL001" in listing_text
 
 
-@pytest.mark.asyncio
+@pytest.mark.anyio
 async def test_book_flight_rejects_missing_hold(mcp_session):
     """The error path is exercised through the same transport as the happy path."""
     result = await mcp_session.call_tool(

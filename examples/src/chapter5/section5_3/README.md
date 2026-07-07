@@ -5,6 +5,15 @@ Eight evals against the `chapter3/section3_5` flight-booking server,
 covering paraphrase resilience, multi-turn state, and intent
 disambiguation regressions.
 
+## SDK v2 note
+
+The rest of the examples are pinned to MCP Python SDK v2 (`mcp==2.0.0b1`).
+The eval framework (`mcpevals`, via `mcp-agent`) has not migrated to v2 yet:
+it still imports the v1-only `mcp.server.fastmcp` module. Until the framework
+ships v2 support, run this eval suite in a separate environment pinned to the
+v1 SDK (`mcp>=1.20,<2`). The `chapter3/section3_5` server under test is
+unchanged by the migration, so the evals themselves do not need edits.
+
 ## What's here
 
 | File | Purpose |
