@@ -20,7 +20,7 @@ from chapter3.section3_5 import mcp_server as server
 # ---------------------------------------------------------------------------
 
 def test_search_flights_returns_results_for_known_route():
-    result = server.search_flights(origin="CDG", destination="NRT", date="2026-06-15")
+    result = server.search_flights(origin="CDG", destination="JFK", date="2026-06-15")
     assert "FL001" in result
     assert "->" in result
 
@@ -135,8 +135,8 @@ def test_list_my_bookings_returns_only_callers_bookings(authenticated):
     }
 
     result = server.list_my_bookings()
-    assert "alice-booking" in result
-    assert "other-booking" not in result
+    assert "FL001" in result       # alice's own booking is listed
+    assert "FL002" not in result   # bob's booking is excluded
 
 
 # ---------------------------------------------------------------------------
