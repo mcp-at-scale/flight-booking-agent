@@ -1,6 +1,6 @@
 """Chapter 3 section 3.5: OAuth via MCPServer(token_verifier=..., auth=...).
 
-Builds on section3_4 (resources, tools, prompts, sampling) by enabling OAuth
+Builds on section3_4 (resources, tools, prompts, elicitation) by enabling OAuth
 authentication. The SDK ships TokenVerifier as a Protocol; this section
 demonstrates a *demo* HS256 verifier (shared-secret, for local testing only).
 Section 6.2 of the book replaces this with a production-grade RS256/JWKS
