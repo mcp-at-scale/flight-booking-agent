@@ -21,14 +21,6 @@ from mcp.shared.memory import create_client_server_memory_streams
 from chapter3.section3_5 import mcp_server as server_module
 
 
-@pytest.fixture(scope="session")
-def event_loop():
-    """One event loop per pytest session."""
-    loop = asyncio.new_event_loop()
-    yield loop
-    loop.close()
-
-
 @pytest.fixture
 def fake_access_token() -> AccessToken:
     """A valid-shaped AccessToken used to fake authentication in tests."""
@@ -81,10 +73,10 @@ async def mcp_session(authenticated):
     async with create_client_server_memory_streams() as (client_streams, server_streams):
         server_read, server_write = server_streams
         server_task = asyncio.create_task(
-            server_module.mcp._mcp_server.run(
+            server_module.mcp._lowlevel_server.run(
                 server_read,
                 server_write,
-                server_module.mcp._mcp_server.create_initialization_options(),
+                server_module.mcp._lowlevel_server.create_initialization_options(),
             )
         )
         try:

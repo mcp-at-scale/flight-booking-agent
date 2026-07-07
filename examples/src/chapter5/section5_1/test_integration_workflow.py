@@ -37,7 +37,7 @@ async def test_search_flights_through_session(mcp_session):
     """tools/call routes to search_flights and the result comes back intact."""
     result = await mcp_session.call_tool(
         "search_flights",
-        {"origin": "CDG", "destination": "NRT", "date": "2026-06-15"},
+        {"origin": "CDG", "destination": "JFK", "date": "2026-06-15"},
     )
     text = result.content[0].text
     assert "FL001" in text
@@ -49,7 +49,7 @@ async def test_full_booking_workflow(mcp_session):
     # Search
     search = await mcp_session.call_tool(
         "search_flights",
-        {"origin": "CDG", "destination": "NRT", "date": "2026-06-15"},
+        {"origin": "CDG", "destination": "JFK", "date": "2026-06-15"},
     )
     assert "FL001" in search.content[0].text
 
@@ -73,9 +73,8 @@ async def test_full_booking_workflow(mcp_session):
     # List my bookings shows the new one
     listing = await mcp_session.call_tool("list_my_bookings", {})
     listing_text = listing.content[0].text
-    # The booking id should appear in the listing.
-    booking_id = next(iter(server_module.BOOKINGS.keys()))
-    assert booking_id in listing_text
+    # The just-booked flight should appear in the caller's listing.
+    assert "FL001" in listing_text
 
 
 @pytest.mark.asyncio

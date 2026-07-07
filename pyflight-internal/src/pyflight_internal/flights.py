@@ -62,6 +62,7 @@ def get_flight_for_date(flight_template: FlightTemplate, date: datetime) -> Flig
         departure=departure_datetime.isoformat(),
         arrival=arrival_datetime.isoformat(),
         duration_hours=flight_template.duration_hours,
+        aircraft=flight_template.aircraft,
         price=round(flight_template.base_price * price_multiplier, 2),
         currency="USD",
         available_seats=available_seats,

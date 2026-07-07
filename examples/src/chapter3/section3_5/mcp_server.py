@@ -204,6 +204,9 @@ def list_my_bookings() -> str:
 @mcp.tool()
 def hold_seat(flight_number: str, seat_number: str, passenger_name: str) -> str:
     """Hold a seat on a flight for 15 minutes pending payment."""
+    token = get_access_token()
+    if token is None:
+        return "Error: authentication required"
     flight = get_flight_by_number(flight_number.strip())
     if flight is None or flight.available_seats <= 0:
         return f"Error: cannot hold {flight_number}"
