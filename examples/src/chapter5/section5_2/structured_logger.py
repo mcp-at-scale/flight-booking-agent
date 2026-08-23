@@ -46,6 +46,11 @@ class ToolCallLog:
     - decision: "success" | "error:<ExceptionClassName>"
     - latency_ms: handler-entry to handler-exit elapsed time
     - result_summary: truncated str() of the return value
+    - result_type: "complete" for an answer, "input_required" when the server
+      returned a question instead and expects the client to call again
+      (multi round-trip requests, see ch3 3.4). A round trip produces two
+      rows for one user-visible action; this field is what distinguishes
+      that pair from a genuine duplicate call.
     """
 
     timestamp: str
@@ -55,6 +60,7 @@ class ToolCallLog:
     decision: str
     latency_ms: int
     result_summary: str = ""
+    result_type: str = "complete"
 
     def to_json(self) -> str:
         return json.dumps(asdict(self), separators=(",", ":"))
