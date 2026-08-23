@@ -5,12 +5,14 @@ that needs mid-call user input returns an `InputRequiredResult` and the client
 retries; it can no longer call `elicitation/create` on the client. `ctx.elicit()`
 therefore works only on a 2025-era connection.
 
-§3.4 still uses `ctx.elicit()`, so `book_flight` succeeds under `mode="legacy"`
-and raises under `mode="auto"`. The auto-mode test is a strict xfail: when A1
-ports the example onto the `Resolve()` / `Elicit()` dependency-injection API,
-it will XPASS and fail the suite, which is the signal to drop the marker.
+§3.4 expresses the question as `Annotated[ElicitationResult[...], Resolve(...)]`
+instead. The framework picks the transport from the negotiated protocol, so the
+same tool body serves both eras. These two tests are the guard on that claim:
+booking must work identically whether the connection lands on 2025-11-25 or
+2026-07-28.
 
-Tracked in issue 43 (A1).
+Ported in A1 (issue 43). Before that, the 2026 case raised and was a strict
+xfail; keep both cases so a regression to a back-channel API cannot pass.
 """
 
 from __future__ import annotations
@@ -75,19 +77,11 @@ async def _book_a_flight(mode: str) -> str:
 
 @pytest.mark.anyio
 async def test_elicitation_works_on_a_2025_era_connection() -> None:
-    """Baseline. The example is correct for the revision it was written against."""
+    """The 2025-era path, where the request goes out standalone mid-call."""
     assert "confirmed" in (await _book_a_flight("legacy")).lower()
 
 
 @pytest.mark.anyio
-@pytest.mark.xfail(
-    strict=True,
-    reason=(
-        "§3.4 uses ctx.elicit(), which needs a server-to-client channel that "
-        "2026-07-28 removed. A1 ports it to Resolve()/Elicit(); drop this marker "
-        "when it starts passing."
-    ),
-)
 async def test_elicitation_works_on_a_2026_era_connection() -> None:
-    """The gap A1 closes. Auto mode negotiates 2026-07-28, where this must work."""
+    """Auto mode negotiates 2026-07-28, where the question rides MRTR."""
     assert "confirmed" in (await _book_a_flight("auto")).lower()
