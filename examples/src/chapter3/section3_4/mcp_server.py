@@ -1,16 +1,25 @@
-"""Chapter 3 section 3.4: structured user input via @mcp.tool() + ctx.elicit().
+"""Chapter 3 section 3.4: structured user input via resolver injection.
 
 Replaces the deprecated sampling pattern (SEP-2577 retired sampling in MCP
-2026-07-28) with the elicitation/create reverse call. book_flight now collects
-email + payment_token through a structured form the client renders, rather
-than embedding them as tool arguments the LLM has to forward.
+2026-07-28). book_flight collects email + payment_token through a structured
+form the client renders, rather than embedding them as tool arguments the LLM
+has to forward.
 
-The `ctx: Context` parameter is auto-injected by the SDK when present in the
-tool's signature. ctx.elicit() sends an elicitation/create request to the
-client and returns one of three result types:
-  - AcceptedElicitation: result.data is a validated Pydantic model instance
-  - DeclinedElicitation: user said no
-  - CancelledElicitation: user dismissed the form
+The mechanism is resolver dependency injection, not a server-to-client call.
+2026-07-28 removed the back channel: a server can no longer originate an
+`elicitation/create` request mid-handler. Under multi round-trip requests
+(SEP-2322) it returns the *question* instead, and the client retries the call
+carrying the answer. `ctx.elicit()` therefore only works on a 2025-era
+connection; on 2026-07-28 it fails for want of a channel to call back on.
+
+`Annotated[ElicitationResult[BookingDetails], Resolve(ask_booking_details)]`
+expresses the same intent declaratively. The resolver runs before the tool
+body, and the framework picks the transport from the negotiated protocol: an
+`InputRequiredResult` on 2026-07-28, a standalone request on 2025-11-25. One
+tool body serves both eras.
+
+The resolver takes `hold_id` by name, so it can check the hold before asking
+the user for payment details and skip the prompt when the hold is already dead.
 
 Elicitation schemas must use primitive types only (str, int, float, bool, and
 list[str] or Optional of these). Nested models are rejected by the SDK.
@@ -22,15 +31,16 @@ from __future__ import annotations
 
 import uuid
 from datetime import datetime, timedelta
-from typing import Any
+from typing import Annotated, Any
 
 from mcp.server import MCPServer
 from mcp.server.elicitation import (
     AcceptedElicitation,
     CancelledElicitation,
     DeclinedElicitation,
+    ElicitationResult,
 )
-from mcp.server.mcpserver import Context
+from mcp.server.mcpserver import Elicit, Resolve
 from pydantic import BaseModel
 
 from pyflight_internal.airports import get_airport_by_code, get_airports_by_country
@@ -117,45 +127,72 @@ def hold_seat(flight_number: str, seat_number: str, passenger_name: str) -> str:
 # from its JSON Schema; the server gets a validated BookingDetails back.
 
 class BookingDetails(BaseModel):
-    """Payment details collected via elicitation/create form mode."""
+    """Payment details collected via a client-rendered elicitation form."""
 
     email: str
     payment_token: str
 
 
+def _live_hold(hold_id: str) -> dict[str, Any] | None:
+    """Return the hold if it is still bookable, otherwise None."""
+    hold = HOLDS.get(hold_id.strip())
+    if hold is None:
+        return None
+    if hold["expires_at"] < datetime.now():
+        hold["status"] = "expired"
+    return hold if hold["status"] == "active" else None
+
+
+async def ask_booking_details(
+    hold_id: str,
+) -> Elicit[BookingDetails] | CancelledElicitation:
+    """Resolver for book_flight's `details` parameter.
+
+    Resolvers may take tool arguments by name, which is what makes the check
+    below possible: a dead hold should not cost the user a payment form. When
+    there is nothing to book we return CancelledElicitation rather than asking,
+    and the tool body reports the underlying hold problem instead.
+    """
+    hold = _live_hold(hold_id)
+    if hold is None:
+        return CancelledElicitation()
+
+    return Elicit(
+        f"Confirm booking for {hold['passenger_name']} on "
+        f"{hold['flight_number']} (seat {hold['seat_number']}, "
+        f"${hold['price']:.0f}). Provide your email and payment token.",
+        BookingDetails,
+    )
+
+
 @mcp.tool()
-async def book_flight(hold_id: str, ctx: Context) -> str:
+async def book_flight(
+    hold_id: str,
+    details: Annotated[
+        ElicitationResult[BookingDetails], Resolve(ask_booking_details)
+    ],
+) -> str:
     """Convert a hold into a confirmed booking.
 
-    Collects email and payment token through ctx.elicit() — a reverse call the
-    server originates during this handler's execution. The client renders a
-    form from BookingDetails; the user fills it in; the server resumes with
-    a validated AcceptedElicitation, or short-circuits on decline / cancel.
+    `details` never comes from the LLM. The framework runs the resolver first
+    and injects the outcome, asking the user over whichever transport the
+    negotiated protocol allows. The handler just branches on the three arms.
     """
     hold = HOLDS.get(hold_id.strip())
     if hold is None:
         return (f"Error: hold {hold_id} not found "
                 f"(holds expire after {HOLD_DURATION_MINUTES} minutes)")
-    if hold["expires_at"] < datetime.now():
-        hold["status"] = "expired"
     if hold["status"] != "active":
         return f"Error: hold is {hold['status']}, please search and hold again"
 
-    result = await ctx.elicit(
-        message=(
-            f"Confirm booking for {hold['passenger_name']} on "
-            f"{hold['flight_number']} (seat {hold['seat_number']}, "
-            f"${hold['price']:.0f}). Provide your email and payment token."
-        ),
-        schema=BookingDetails,
-    )
-    if isinstance(result, DeclinedElicitation):
+    if isinstance(details, DeclinedElicitation):
         return "Booking cancelled: user declined to provide payment details."
-    if isinstance(result, CancelledElicitation):
+    if isinstance(details, CancelledElicitation):
         return "Booking cancelled: user dismissed the form."
 
-    # AcceptedElicitation — result.data is a validated BookingDetails.
-    assert isinstance(result, AcceptedElicitation)
+    # AcceptedElicitation — details.data is a validated BookingDetails.
+    assert isinstance(details, AcceptedElicitation)
+    result = details
     booking_id = str(uuid.uuid4())
     BOOKINGS[booking_id] = {
         "flight_number": hold["flight_number"],

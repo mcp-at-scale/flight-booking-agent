@@ -1,22 +1,20 @@
 """Pytest fixtures for Chapter 5 §5.1 unit + integration tests.
 
 Targets chapter3/section3_5 as the system under test. The fixtures wire
-up an in-memory ClientSession bound to that server (no subprocess, no
-network), patch the auth lookup to return a fake authenticated user,
-and reset module-level state between tests so holds and bookings don't
-leak across cases.
+up an in-memory Client bound to that server (no subprocess, no network),
+patch the auth lookup to return a fake authenticated user, and reset
+module-level state between tests so holds and bookings don't leak across
+cases.
 """
 
 from __future__ import annotations
 
 from unittest.mock import patch
 
-import anyio
 import pytest
 
-from mcp.client.session import ClientSession
+from mcp.client import Client
 from mcp.server.auth.provider import AccessToken
-from mcp.shared.memory import create_client_server_memory_streams
 
 from chapter3.section3_5 import mcp_server as server_module
 
@@ -27,8 +25,8 @@ def anyio_backend() -> str:
 
     The MCP SDK is built on anyio, so the tests run under anyio's pytest
     plugin: the test and its async fixtures share one task, which keeps
-    anyio cancel scopes (used by ClientSession and the server task group)
-    entered and exited in the same task during teardown.
+    anyio cancel scopes entered and exited in the same task during
+    teardown.
     """
     return "asyncio"
 
@@ -77,22 +75,16 @@ def reset_server_state():
 
 @pytest.fixture
 async def mcp_session(authenticated):
-    """Yield a ClientSession bound to the section3_5 server, in-process.
+    """Yield a Client bound to the section3_5 server, in-process.
+
+    v2's Client takes a server object directly, so the memory streams, the
+    task group and the explicit `initialize()` that v1 needed are all gone.
+    Connection and version negotiation happen on context entry, landing on
+    2026-07-28: these tests exercise the same stateless revision a real
+    client would get.
 
     The auth fixture is applied first so tools that read from the auth
     context find the fake user when the in-memory client invokes them.
     """
-    async with create_client_server_memory_streams() as (client_streams, server_streams):
-        server_read, server_write = server_streams
-        client_read, client_write = client_streams
-        async with anyio.create_task_group() as tg:
-            tg.start_soon(
-                server_module.mcp._lowlevel_server.run,
-                server_read,
-                server_write,
-                server_module.mcp._lowlevel_server.create_initialization_options(),
-            )
-            async with ClientSession(client_read, client_write) as session:
-                await session.initialize()
-                yield session
-            tg.cancel_scope.cancel()
+    async with Client(server_module.mcp) as client:
+        yield client

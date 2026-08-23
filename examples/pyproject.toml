@@ -5,10 +5,9 @@ description = "Flight booking system simulation with JSON-based data and Pydanti
 requires-python = ">=3.10"
 dependencies = [
     "pydantic>=2.12.4",
-    # MCP Python SDK v2 (beta). mcp-types tracks the SDK version exactly.
-    # TODO: re-pin to the v2 GA release before the book ships.
-    "mcp[cli]==2.0.0b1",
-    "mcp-types==2.0.0b1",
+    # MCP Python SDK v2. mcp-types tracks the SDK version exactly.
+    "mcp[cli]==2.0.0",
+    "mcp-types==2.0.0",
     "pyflight-internal",
     "PyJWT[crypto]>=2.8.0",
     # OpenTelemetry stack for the §5.4 production-tracing example.

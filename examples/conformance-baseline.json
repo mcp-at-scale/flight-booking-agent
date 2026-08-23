@@ -1,8 +1,8 @@
 {
   "_README": [
     "Known-failing conformance checks per example server, recorded against",
-    "mcp 2.0.0b1 on 2026-08-23. Regenerate with:",
-    "    uv run python scripts/conformance.py <section> --update-baseline",
+    "Known-failing conformance checks per example server, recorded against",
+    "mcp 2.0.0 on 2026-08-23. Regenerate with:",
     "",
     "Only the `server-stateless` scenario (SEP-2575) is baselined. Everything",
     "else in the suite either drives reference fixtures our examples do not",
@@ -10,18 +10,15 @@
     "`wire-schema-valid` is not baselined: it must always be clean."
   ],
   "_notes": {
-    "sep-2575-request-meta-client-info-optional": "b1 requires clientInfo in _meta. GA made it optional (SDK PR 3143). Expect this to clear on the 2.0.0 bump in A1.",
-    "sep-2575-server-identifies-in-result-meta": "b1 puts serverInfo in the discover result body. GA moved it into every result's _meta (SDK PR 3143, spec PR 3002). Expect this to clear on the 2.0.0 bump in A1.",
     "sep-2575-server-rejects-undeclared-capability": "Needs the suite's `test_missing_capability` diagnostic tool, which our example does not expose. Fixture-dependent, not a real gap.",
     "sep-2575-missing-capability-http-400": "Same fixture dependency as above; the suite reports it as not testable.",
     "sep-2575-server-sends-tools-list-changed-on-subscription": "Genuine SHOULD-level gap. Our server never mutates its tool list, so it emits no list_changed on the subscriptions/listen stream. Addressed by B4.",
-    "sep-2575-server-sends-prompts-list-changed-on-subscription": "Same as above for prompts. Addressed by B4."
+    "sep-2575-server-sends-prompts-list-changed-on-subscription": "Same as above for prompts. Addressed by B4.",
+    "_cleared_on_the_2.0.0_bump": "sep-2575-request-meta-client-info-optional and sep-2575-server-identifies-in-result-meta were baselined against 2.0.0b1 and cleared on the GA bump in A1 with no code change, as predicted. Kept as a note because it is the evidence that the gate detects real movement."
   },
   "chapter3/section3_2": {
     "server_stateless_failures": [
       "sep-2575-missing-capability-http-400",
-      "sep-2575-request-meta-client-info-optional",
-      "sep-2575-server-identifies-in-result-meta",
       "sep-2575-server-rejects-undeclared-capability",
       "sep-2575-server-sends-prompts-list-changed-on-subscription",
       "sep-2575-server-sends-tools-list-changed-on-subscription"
