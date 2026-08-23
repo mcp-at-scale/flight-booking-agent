@@ -1,0 +1,54 @@
+name: Examples
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    name: pytest
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: examples
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Sync dependencies
+        run: uv sync --all-extras --dev
+
+      # Smoke tests cover every chapter example server; §5.1 covers Ch5 behaviour.
+      # §5.3 evals are excluded: mcp-agent has not migrated to SDK v2 and that
+      # suite needs a separate v1-pinned environment.
+      - name: Run tests
+        run: uv run pytest tests/ src/chapter5/section5_1 -v
+
+  conformance:
+    name: conformance (2026-07-28)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: examples
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Sync dependencies
+        run: uv sync --all-extras --dev
+
+      # Scores the official MCP conformance suite against conformance-baseline.json.
+      # Fails on a wire-schema regression, a new server-stateless failure, or a
+      # baselined failure that started passing (which means the baseline is stale).
+      - name: Conformance gate
+        run: uv run python scripts/conformance.py chapter3/section3_2
